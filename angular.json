@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/sapphire",
+                        "outputPath": "dist/SMPDSAdminDeploy",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -29,6 +29,8 @@
                             "src/favicon.ico"
                         ],
                         "styles": [
+                            "node_modules/devextreme/dist/css/dx.common.css",
+                            "node_modules/devextreme/dist/css/dx.generic.sapphire-blue.css",
                             "src/styles.scss"
                         ],
                         "scripts": [
@@ -56,8 +58,8 @@
                             "budgets": [
                                 {
                                     "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
+                                    "maximumWarning": "5mb",
+                                    "maximumError": "9mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -71,18 +73,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "sapphire:build"
+                        "browserTarget": "SMPDSAdmin:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "sapphire:build:production"
+                            "browserTarget": "SMPDSAdmin:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "sapphire:build"
+                        "browserTarget": "SMPDSAdmin:build"
                     }
                 },
                 "test": {
@@ -120,16 +122,16 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "sapphire:serve"
+                        "devServerTarget": "SMPDSAdmin:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "sapphire:serve:production"
+                            "devServerTarget": "SMPDSAdmin:serve:production"
                         }
                     }
                 }
             }
         }
     },
-    "defaultProject": "sapphire"
+    "defaultProject": "SMPDSAdmin"
 }
