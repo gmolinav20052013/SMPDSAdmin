@@ -7,7 +7,8 @@ export class Usuarios {
 	public EstadoUsuario: string;
 	public ReiniciaClave: boolean;
 
-	constructor (IdUsuario_: number,IdRolUsuario_: number,EmailUsuario_: string,Password_: string,NombreUsuario_: string,EstadoUsuario_: string,ReiniciaClave_: boolean)
+	constructor (IdUsuario_: number = null,IdRolUsuario_: number = null,EmailUsuario_: string = null,
+        Password_: string = null,NombreUsuario_: string = null,EstadoUsuario_: string = null,ReiniciaClave_: boolean = null)
 	{
 		this.IdUsuario = IdUsuario_;
 		this.IdRolUsuario = IdRolUsuario_;

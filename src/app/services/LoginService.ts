@@ -37,7 +37,7 @@ export class LoginService {
                  localStorage.setItem('currentUser', loginViewModel.Usuario);
                  sessionStorage.setItem('currentToken', JSON.stringify(user));
                  this.currentUSerName = loginViewModel.Usuario;
-                 sessionStorage.setItem('tipoAutenticacion', 'C');
+                // sessionStorage.setItem('tipoAutenticacion', 'C');
 
                 }
                 return user;
@@ -109,12 +109,12 @@ export class LoginService {
 
 
     public Logout()  {
-      if (localStorage.getItem('recuerdaUsuario') === 'false') {
+   //   if (localStorage.getItem('recuerdaUsuario') === 'false') {
           localStorage.removeItem('currentUser');
-      }
+    //  }
       this.currentUSerName = null;
       sessionStorage.removeItem('currentToken');
-      sessionStorage.removeItem('tipoAutenticacion');
+     // sessionStorage.removeItem('tipoAutenticacion');
     }
 
     public isAuthenticated(): boolean {

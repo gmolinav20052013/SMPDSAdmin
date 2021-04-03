@@ -6,7 +6,8 @@ export class OpcionesSistema {
 	public Ruta: string;
 	public Activa: boolean;
 
-	constructor (IdOpcionSistema_: number,IdentificadorOpcionSistema_: string,NombreOpcionSistema_: string,DescripcionOpcionSistema_: string,Ruta_: string,Activa_: boolean)
+	constructor (IdOpcionSistema_: number = null,IdentificadorOpcionSistema_: string = null,NombreOpcionSistema_: string = null,
+                 DescripcionOpcionSistema_: string = null,Ruta_: string = null,Activa_: boolean = null)
 	{
 		this.IdOpcionSistema = IdOpcionSistema_;
 		this.IdentificadorOpcionSistema = IdentificadorOpcionSistema_;

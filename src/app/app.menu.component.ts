@@ -13,7 +13,22 @@ export class AppMenuComponent implements OnInit {
 
     ngOnInit() {
         this.model = [
-            {label: 'Dashboard', icon: 'dashboard', routerLink: ['/']},
+            {   label: 'Inicio', icon: '', routerLink: ['/']
+            }
+            // {
+            //     label: 'Tablas', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation'],
+            //     items: [
+            //         {label: 'Tipos de gráficos', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+            //         {label: 'Temas', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+            //     ]
+            // },
+            // {
+            //     label: 'Configuración', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation'],
+            //     items: [
+            //         {label: 'Parámetros del sistema', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+            //         {label: 'Indicadores', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+            //     ]
+            // },
             // {
             //     label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
             //     items: [
@@ -154,9 +169,7 @@ export class AppMenuComponent implements OnInit {
             // {
             //     label: 'Buy Now', icon: 'pi pi-fw pi-shopping-cart', url: ['https://www.primefaces.org/store']
             // },
-            {
-                label: 'Documentation', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation']
-            }
+
         ];
     }
 }

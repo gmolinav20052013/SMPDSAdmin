@@ -6,6 +6,8 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DevExtremeModule  } from './devextreme.module';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 // PrimeNG Components for demos
@@ -100,6 +102,19 @@ import {MenuService} from './app.menu.service';
 import { DashComponent } from './views/Dash/Dash.component';
 import { JwtInterceptorService } from './services/JwtInterceptor.service';
 import { JwtUnAuthorizedService } from './services/JwtUnAuthorized.service';
+import { jwtTokenGetter } from './helpers/utils';
+import { AppLogoutComponent } from './pages/AppLogout/AppLogout.component';
+import { RolesUsuariosComponent } from './seguridad/RolesUsuarios/RolesUsuarios.component';
+import { OpcionesSistemaComponent } from './seguridad/OpcionesSistema/OpcionesSistema.component';
+import { UsuariosComponent } from './seguridad/Usuarios/Usuarios.component';
+import { OpcionesRolComponent } from './seguridad/OpcionesRol/OpcionesRol.component';
+import { TemasComponent } from './tablas/Temas/Temas.component';
+import { TiposGraficosComponent } from './tablas/TiposGraficos/TiposGraficos.component';
+import { ParametrosSistemaComponent } from './configuracion/ParametrosSistema/ParametrosSistema.component';
+import { IndicadoresComponent } from './configuracion/Indicadores/Indicadores.component';
+import { VisualizacionIndicadoresComponent } from './configuracion/VisualizacionIndicadores/VisualizacionIndicadores.component';
+import { GraficoStandardComponent } from './views/GraficoStandard/GraficoStandard.component';
+
 
 
 @NgModule({
@@ -109,6 +124,7 @@ import { JwtUnAuthorizedService } from './services/JwtUnAuthorized.service';
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        DevExtremeModule,
         AccordionModule,
         AutoCompleteModule,
         BreadcrumbModule,
@@ -175,14 +191,11 @@ import { JwtUnAuthorizedService } from './services/JwtUnAuthorized.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
+        HighchartsChartModule,
         AppCodeModule,
         JwtModule.forRoot({
             config: {
-              tokenGetter: () => {
-                return (sessionStorage.getItem('currentToken') ?
-                  JSON.parse(sessionStorage.getItem('currentToken')).token :
-                  null);
-              }
+              tokenGetter: jwtTokenGetter
             }
           }),
     ],
@@ -201,7 +214,20 @@ import { JwtUnAuthorizedService } from './services/JwtUnAuthorized.service';
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
-        DashComponent
+        DashComponent,
+        AppLogoutComponent,
+        RolesUsuariosComponent,
+        UsuariosComponent,
+        OpcionesSistemaComponent,
+        OpcionesRolComponent,
+        TemasComponent,
+        TiposGraficosComponent,
+        ParametrosSistemaComponent,
+        IndicadoresComponent,
+        VisualizacionIndicadoresComponent,
+        GraficoStandardComponent
+
+
    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

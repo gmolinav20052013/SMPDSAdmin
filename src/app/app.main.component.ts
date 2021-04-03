@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MenuService } from './app.menu.service';
 import { PrimeNGConfig } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-main',
@@ -40,7 +41,7 @@ export class AppMainComponent {
 
     layoutColor = 'blue';
 
-    topbarSize = 'large';
+    topbarSize = 'medium';
 
     configDialogActive: boolean;
 
@@ -50,7 +51,7 @@ export class AppMainComponent {
 
     compactMode = false;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) {}
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, private router: Router) {}
 
     blockBodyScroll(): void {
         if (document.body.classList) {
@@ -122,6 +123,7 @@ export class AppMainComponent {
 
     onTopbarSubItemClick(event) {
         event.preventDefault();
+        this.router.navigateByUrl('/logout');
     }
 
     onSidebarClick(event: Event) {

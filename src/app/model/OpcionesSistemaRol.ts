@@ -5,7 +5,8 @@ export class OpcionesSistemaRol {
 	public Secuencia: number;
 	public Visible: boolean;
 
-	constructor (IdOpcionSistemaRol_: number,IdRolUsuario_: number,IdOpcionSistema_: number,Secuencia_: number,Visible_: boolean)
+	constructor (IdOpcionSistemaRol_: number = null,IdRolUsuario_: number = null,IdOpcionSistema_: number = null,
+                Secuencia_: number = null,Visible_: boolean = null)
 	{
 		this.IdOpcionSistemaRol = IdOpcionSistemaRol_;
 		this.IdRolUsuario = IdRolUsuario_;

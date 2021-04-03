@@ -1,6 +1,8 @@
 .layout-topbar-blue {
-    $topbarLeftBgColor:#457fca;
-    $topbarRightBgColor:#5691c8;
+    $topbarLeftBgColor:#313945;
+    $topbarRightBgColor:#313945;
+    // $topbarLeftBgColor:#457fca;
+    // $topbarRightBgColor:#5691c8;
     $topbarSearchInputColor:#cbdeee;
     $topbarSearchFocusedInputColor:#ffffff;
     $topbarUserIconHoverBorderColor:#ffffff;
@@ -24,6 +26,6 @@
     $breadcrumbIconColor:#ffffff;
     $breadcrumbTextColor:#ffffff;
     $breadcrumbLinkColor:#ffc107;
-    
+
     @import '../_topbar_theme';
 }

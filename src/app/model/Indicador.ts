@@ -1,5 +1,5 @@
-export class RelacionTemasIndicadores {
-	public IdRelacionTemaIndicador: number;
+export class Indicador {
+	public IdIndicador: number;
 	public IdTema: number;
 	public IdTipoGrafico: number;
 	public CODINDIC: string;
@@ -10,6 +10,7 @@ export class RelacionTemasIndicadores {
 	public SecuenciaVisualizacion: number;
 	public EstadoVisualizacion: string;
 	public Drilldown: boolean;
+    public AgrupacionSerie: boolean;
 	public TituloEjeY: string;
 	public FormatoVisualizacionDato: string;
 	public FormatoTooltipEncabezado: string;
@@ -17,9 +18,13 @@ export class RelacionTemasIndicadores {
 	public TituloEjeX: string;
 	public TituloEjeXDrilldown: string;
 
-	constructor (IdRelacionTemaIndicador_: number,IdTema_: number,IdTipoGrafico_: number,CODINDIC_: string,CODVISAO_: string,CODPERSP_: string,CODOBJEC_: string,SIGLA_: string,SecuenciaVisualizacion_: number,EstadoVisualizacion_: string,Drilldown_: boolean,TituloEjeY_: string,FormatoVisualizacionDato_: string,FormatoTooltipEncabezado_: string,FormatoTooltipDato_: string,TituloEjeX_: string,TituloEjeXDrilldown_: string)
+	constructor (IdIndicador_: number = null,IdTema_: number = null,IdTipoGrafico_: number = null,CODINDIC_: string = null,CODVISAO_: string = null,
+                 CODPERSP_: string = null,CODOBJEC_: string = null,SIGLA_: string = null,SecuenciaVisualizacion_: number = null,
+                 EstadoVisualizacion_: string = null,Drilldown_: boolean = null,AgrupacionSerie_: boolean = null,
+                 TituloEjeY_: string = null,FormatoVisualizacionDato_: string = null,FormatoTooltipEncabezado_: string = null,
+                 FormatoTooltipDato_: string = null,TituloEjeX_: string = null,TituloEjeXDrilldown_: string = null)
 	{
-		this.IdRelacionTemaIndicador = IdRelacionTemaIndicador_;
+		this.IdIndicador = IdIndicador_;
 		this.IdTema = IdTema_;
 		this.IdTipoGrafico = IdTipoGrafico_;
 		this.CODINDIC = CODINDIC_;
@@ -30,6 +35,7 @@ export class RelacionTemasIndicadores {
 		this.SecuenciaVisualizacion = SecuenciaVisualizacion_;
 		this.EstadoVisualizacion = EstadoVisualizacion_;
 		this.Drilldown = Drilldown_;
+        this.AgrupacionSerie = AgrupacionSerie_;
 		this.TituloEjeY = TituloEjeY_;
 		this.FormatoVisualizacionDato = FormatoVisualizacionDato_;
 		this.FormatoTooltipEncabezado = FormatoTooltipEncabezado_;

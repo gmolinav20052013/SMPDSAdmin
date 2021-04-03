@@ -1,0 +1,99 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card">
+            <h4>{{ nombreOpcion }}</h4>
+            <hr />
+            <dx-data-grid
+                id="gridContainer"
+                [dataSource]="data"
+                keyExpr="IdTema"
+                [allowColumnReordering]="true"
+                [showBorders]="true"
+                [rowAlternationEnabled]="true"
+                [focusedRowEnabled]="true"
+                [errorRowEnabled]="false"
+                [hoverStateEnabled]="true"
+                (onRowInserting)="onRowInserting($event)"
+                (onRowUpdating)="onRowUpdating($event)"
+                (onRowRemoving)="onRowRemoving($event)"
+                (onInitNewRow)="onInitNewRow($event)"
+                (onInitialized)="onInitialized($event)"
+            >
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+                <dxo-paging [enabled]="true" [pageSize]="20"></dxo-paging>
+                <dxo-editing
+                    mode="form"
+                    [allowUpdating]="true"
+                    [allowDeleting]="true"
+                    [allowAdding]="true"
+                >
+                </dxo-editing>
+                <dxo-search-panel
+                    [visible]="true"
+                    [width]="240"
+                    placeholder="Buscar..."
+                ></dxo-search-panel>
+                <dxi-column dataField="IdTema" [visible]="false">
+                    <dxo-form-item [visible]="false"> </dxo-form-item>
+                </dxi-column>
+                <dxi-column
+                    dataField="IdentificadorTema"
+                    caption="Código Identificador"
+                >
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+                <dxi-column dataField="NombreTema" caption="Nombre Tema">
+                    <dxo-form-item
+                        [colSpan]="2"
+                        [editorOptions]="{ maxLength: 100 }"
+                    >
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+                <dxi-column
+                    dataField="DescripcionTema"
+                    caption="Descripción tema"
+                    [visible]="false"
+                >
+                    <dxo-form-item
+                        [colSpan]="2"
+                        editorType="dxTextArea"
+                        [editorOptions]="{ height: 50, maxLength: 300 }"
+                    >
+                    </dxo-form-item>
+                </dxi-column>
+                <dxi-column
+                    dataField="EstadoVisualizacion"
+                    caption="Estado visualización"
+                >
+                    <dxo-lookup
+                        [dataSource]="generico"
+                        displayExpr="nombre"
+                        valueExpr="id"
+                    >
+                    </dxo-lookup>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+                <dxi-column
+                    dataField="SecuenciaDespliegue"
+                    caption="Secuencia"
+                    datatype="number"
+                    format="##0"
+                >
+                    <dxo-form-item
+                        editorType="dxNumberBox"
+                        [editorOptions]="{ format: '000', min: 1, max: 999 }"
+                    >
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+                <dxi-column dataField="ColorTema" caption="Color Tema">
+                    <dxo-form-item [editorOptions]="{ maxLength: 30 }">
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+            </dx-data-grid>
+        </div>
+    </div>
+</div>

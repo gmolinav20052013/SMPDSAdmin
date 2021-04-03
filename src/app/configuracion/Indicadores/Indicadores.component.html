@@ -1,0 +1,198 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card">
+            <h4>{{ nombreOpcion }}</h4>
+            <hr />
+            <dx-select-box
+                [value]="idTema"
+                [dataSource]="temas"
+                valueExpr="IdTema"
+                displayExpr="NombreTema"
+                placeholder="Seleccione tema"
+                (onValueChanged)="TemaValueChange($event)"
+            >
+            </dx-select-box>
+            <hr />
+            <dx-data-grid
+                id="gridContainer"
+                [dataSource]="data"
+                keyExpr="IdIndicador"
+                [allowColumnReordering]="true"
+                [showBorders]="true"
+                [rowAlternationEnabled]="true"
+                [focusedRowEnabled]="true"
+                [errorRowEnabled]="false"
+                [hoverStateEnabled]="true"
+                (onRowInserting)="onRowInserting($event)"
+                (onRowUpdating)="onRowUpdating($event)"
+                (onRowRemoving)="onRowRemoving($event)"
+                (onInitNewRow)="onInitNewRow($event)"
+                (onInitialized)="onInitialized($event)"
+            >
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+                <dxo-paging [enabled]="true" [pageSize]="20"></dxo-paging>
+                <dxo-editing
+                    mode="form"
+                    [allowUpdating]="true"
+                    [allowDeleting]="true"
+                    [allowAdding]="idTema > 0"
+                >
+                </dxo-editing>
+                <dxo-search-panel
+                    [visible]="true"
+                    [width]="240"
+                    placeholder="Buscar..."
+                ></dxo-search-panel>
+                <dxi-column dataField="IdIndicador" [visible]="false">
+                    <dxo-form-item [visible]="false"> </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column dataField="IdTipoGrafico" caption="Tipo gráfico">
+                    <dxo-lookup
+                        [dataSource]="tiposgraficos"
+                        displayExpr="NombreTipoGrafico"
+                        valueExpr="IdTipoGrafico"
+                    >
+                    </dxo-lookup>
+                    <dxo-form-item visible="true"> </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="CODPERSP"
+                    caption="Perspectiva"
+                    [setCellValue]="setIndicadorBSCValue"
+                >
+                    <dxo-lookup
+                        [dataSource]="perspectivas"
+                        displayExpr="SIGLA"
+                        valueExpr="CODPERSP"
+                    >
+                    </dxo-lookup>
+                </dxi-column>
+
+                <dxi-column dataField="CODINDIC" caption="Indicador BSC">
+                    <dxo-lookup
+                        [dataSource]="getIndicadoresBSC"
+                        displayExpr="SIGLA"
+                        valueExpr="CODINDIC"
+                    >
+                    </dxo-lookup>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="SecuenciaVisualizacion"
+                    caption="Secuencia"
+                    datatype="number"
+                    format="##0"
+                >
+                    <dxo-form-item
+                        editorType="dxNumberBox"
+                        [editorOptions]="{ format: '000', min: 0, max: 999 }"
+                    >
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="EstadoVisualizacion"
+                    caption="Visualización"
+                >
+                    <dxo-lookup
+                        [dataSource]="generico"
+                        displayExpr="nombre"
+                        valueExpr="id"
+                    >
+                    </dxo-lookup>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+
+                <dxi-column dataField="Drilldown" caption="Desgloce datos">
+                    <dxo-lookup
+                        [dataSource]="generico2"
+                        displayExpr="nombre"
+                        valueExpr="id"
+                    >
+                    </dxo-lookup>
+                    <!-- <dxi-validation-rule type="required"></dxi-validation-rule> -->
+                </dxi-column>
+
+                <dxi-column dataField="AgrupacionSerie" caption="Agrupación">
+                    <dxo-lookup
+                        [dataSource]="generico2"
+                        displayExpr="nombre"
+                        valueExpr="id"
+                    >
+                    </dxo-lookup>
+                    <!-- <dxi-validation-rule type="required"></dxi-validation-rule> -->
+                </dxi-column>
+
+                <dxi-column
+                    dataField="TituloEjeX"
+                    caption="Titulo Eje X"
+                    [visible]="false"
+                >
+                    <dxo-form-item [editorOptions]="{ maxLength: 50 }">
+                    </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="TituloEjeY"
+                    caption="Titulo Eje Y"
+                    [visible]="false"
+                >
+                    <dxo-form-item [editorOptions]="{ maxLength: 50 }">
+                    </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="TituloEjeXDrilldown"
+                    caption="Titulo Eje Desagregación"
+                    [visible]="false"
+                >
+                    <dxo-form-item [editorOptions]="{ maxLength: 50 }">
+                    </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="FormatoVisualizacionDato"
+                    caption="Formato visualización dato"
+                    [visible]="false"
+                >
+                    <dxo-form-item
+                        [colSpan]="2"
+                        editorType="dxTextArea"
+                        [editorOptions]="{ height: 50, maxLength: 100 }"
+                    >
+                    </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="FormatoTooltipEncabezado"
+                    caption="Formato tooltip encabezado"
+                    [visible]="false"
+                >
+                    <dxo-form-item
+                        [colSpan]="2"
+                        editorType="dxTextArea"
+                        [editorOptions]="{ height: 50, maxLength: 200 }"
+                    >
+                    </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="FormatoTooltipDato"
+                    caption="Formato tooltip dato"
+                    [visible]="false"
+                >
+                    <dxo-form-item
+                        [colSpan]="2"
+                        editorType="dxTextArea"
+                        [editorOptions]="{ height: 50, maxLength: 200 }"
+                    >
+                    </dxo-form-item>
+                </dxi-column>
+            </dx-data-grid>
+        </div>
+    </div>
+</div>

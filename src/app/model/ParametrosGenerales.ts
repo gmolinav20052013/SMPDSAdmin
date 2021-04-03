@@ -6,7 +6,8 @@ export class ParametrosGenerales {
 	public TipoDatoParametro: string;
 	public ValorParametro: string;
 
-	constructor (IdParametroGeneral_: number,IdentificadorParametro_: string,NombreParametro_: string,DescripcionParametro_: string,TipoDatoParametro_: string,ValorParametro_: string)
+	constructor (IdParametroGeneral_: number = null,IdentificadorParametro_: string = null,NombreParametro_: string = null,
+        DescripcionParametro_: string = null,TipoDatoParametro_: string = null,ValorParametro_: string = null)
 	{
 		this.IdParametroGeneral = IdParametroGeneral_;
 		this.IdentificadorParametro = IdentificadorParametro_;

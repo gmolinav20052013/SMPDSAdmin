@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AppMainComponent } from './app.main.component';
 
 @Component({
@@ -6,6 +7,8 @@ import { AppMainComponent } from './app.main.component';
     templateUrl: './app.topbar.component.html'
 })
 export class AppTopBarComponent {
+
+    nombreApp = environment.nombreApp;
 
     constructor(public app: AppMainComponent) {}
 

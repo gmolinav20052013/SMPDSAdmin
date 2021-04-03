@@ -92,9 +92,10 @@
 
     .layout-logo {
         img {
-            height: 20px;
+            height: 97px;
         }
     }
+
 
     .layout-topbar-search {
         .p-inputtext {
@@ -108,6 +109,10 @@
             color: $textSecondaryColor;
             @include transition(color $transitionDuration);
         }
+    }
+
+    .layout-topbar-title {
+        color: #BCA078;
     }
 
     .profile-menu-button {
@@ -188,6 +193,10 @@
             display: none;
         }
 
+        .layout-topbar-title {
+            display: none;
+        }
+
         .layout-content {
             margin-top: 15px;
         }
@@ -203,6 +212,8 @@
             padding-bottom: 15px;
             @include double-shadow(0 2px 10px 0 rgba(0, 0, 0, 0.03), 0 2px 5px 0 rgba(0, 0, 0, 0.05));
         }
+
+
 
         .layout-breadcrumb {
             @include shadow(none);
@@ -246,6 +257,10 @@
         }
 
         .layout-topbar-search {
+            display: none;
+        }
+
+        .layout-topbar-title {
             display: none;
         }
 

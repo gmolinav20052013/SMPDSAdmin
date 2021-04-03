@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoginService } from './login.service';
+import { LoginService } from './LoginService';
 import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class CanActivateGuardService {
      {
        return true;
      } else {
-       this.router.navigate(['ingreso']);
+       this.router.navigate(['/login']);
        return false;
      }
    }

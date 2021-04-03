@@ -1,8 +1,181 @@
-<div class="p-grid">
-    <div class="p-col-12">
-        <div class="card">
-            <h4>Empty Page</h4>
-            <p>This is your empty page template to start building beautiful applications.</p>
+<div class="dashboard">
+    <div class="p-grid dashboard-grid">
+        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+            <a routerLink="/rolesusuario">
+                <div class="card">
+                    <div class="summary-box-title">Roles de usuarios</div>
+                    <p>{{ RolesUsuarios }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
         </div>
+
+
+        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+            <a routerLink="/usuarios">
+                <div class="card">
+                    <div class="summary-box-title">Usuarios</div>
+                    <p>{{ Usuarios }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+
+        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+            <a routerLink="/opcionessistema">
+                <div class="card">
+                    <div class="summary-box-title">Opciones sistema</div>
+                    <p>{{ OpcionesSistemas }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+
+
+        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+            <a routerLink="/opcionesrol">
+                <div class="card">
+                    <div class="summary-box-title">Opciones x Rol</div>
+                    <p>{{ OpcionesRol }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-messages.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="p-grid dashboard-grid">
+        <div class="p-col-12 p-md-3 summary-box summary-box-filessynced">
+            <a routerLink="/tiposgraficos">
+                <div class="card">
+                    <div class="summary-box-title">Tipos de gráficos</div>
+                    <p>{{ TiposGraficos }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-filessynced.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-filessynced.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+
+        <div class="p-col-12 p-md-3 summary-box summary-box-filessynced">
+            <a routerLink="/temas">
+                <div class="card">
+                    <div class="summary-box-title">Temas</div>
+                    <p>{{ Temas }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-filessynced.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-filessynced.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="p-grid dashboard-grid">
+        <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
+            <a routerLink="/parametrossistema">
+                <div class="card">
+                    <div class="summary-box-title">Parámetros del sistema</div>
+                    <p>{{ ParametrosSistema }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-usersonline.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-usersonline.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+
+        <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
+            <a routerLink="/indicadores">
+                <div class="card">
+                    <div class="summary-box-title">Indicadores</div>
+                    <p>{{ Indicadores }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-usersonline.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-usersonline.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+
+        <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
+            <a routerLink="/visualizacion">
+                <div class="card">
+                    <div class="summary-box-title">Visualización Indicadores</div>
+                    <p>{{ Indicadores }}</p>
+                    <img
+                        src="assets/layout/images/dashboard/icon-usersonline.svg"
+                        alt="sapphire"
+                        class="summary-box-icon"
+                    />
+                    <img
+                        src="assets/layout/images/dashboard/graph-usersonline.svg"
+                        alt="sapphire"
+                        class="summary-box-graph"
+                    />
+                </div>
+            </a>
+        </div>
+
     </div>
 </div>

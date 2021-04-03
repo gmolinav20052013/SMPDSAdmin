@@ -1,0 +1,28 @@
+<div class="login-body">
+    <div class="login-panel p-fluid" style="height: 310px;">
+        <div class="login-panel-header">
+            <img src="assets/layout/images/login/logo-sapphire-color.png">
+        </div>
+        <div class="login-panel-content">
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <h1>{{ nombreApp }}</h1>
+                    <h2>Salida</h2>
+                </div>
+                <div class="p-col-12">
+                    <span class="p-float-label">
+                        <input id="username" type="text" [(ngModel)]="Usuario" readonly pInputText>
+                        <label for="username">Usuario</label>
+                    </span>
+                </div>
+                <div class="p-col-12">
+                    <button pButton pRipple type="button" label="Salir de Aplicativo" style="width: 100%" (click)="onLogoutClick($event)"></button>
+                </div>
+                <div class="p-col-12" style="text-align: center;padding-top: 0.8em">
+                    <a routerLink="/">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

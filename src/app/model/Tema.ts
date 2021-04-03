@@ -1,4 +1,4 @@
-export class Temas {
+export class Tema {
 	public IdTema: number;
 	public IdentificadorTema: string;
 	public NombreTema: string;
@@ -7,7 +7,8 @@ export class Temas {
 	public EstadoVisualizacion: string;
 	public ColorTema: string;
 
-	constructor (IdTema_: number,IdentificadorTema_: string,NombreTema_: string,DescripcionTema_: string,SecuenciaDespliegue_: number,EstadoVisualizacion_: string,ColorTema_: string)
+	constructor (IdTema_: number = null,IdentificadorTema_: string = null,NombreTema_: string = null,DescripcionTema_: string = null,
+        SecuenciaDespliegue_: number = null,EstadoVisualizacion_: string = null,ColorTema_: string = null)
 	{
 		this.IdTema = IdTema_;
 		this.IdentificadorTema = IdentificadorTema_;

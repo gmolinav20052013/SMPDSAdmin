@@ -1,5 +1,5 @@
 {
-    "name": "sapphire",
+    "name": "SMPDS-Admin",
     "version": "10.0.1",
     "license": "PrimeNG Commercial",
     "scripts": {
@@ -26,14 +26,19 @@
         "@fullcalendar/daygrid": "4.0.1",
         "@fullcalendar/interaction": "4.0.2",
         "@fullcalendar/timegrid": "4.0.1",
+        "@sweetalert2/theme-material-ui": "^4.0.3",
         "chart.js": "2.7.3",
         "devextreme": "20.2.6",
         "devextreme-angular": "20.2.6",
+        "highcharts": "^9.0.1",
+        "highcharts-angular": "^2.10.0",
         "primeflex": "2.0.0",
         "primeicons": "4.0.0",
         "primeng": "10.0.2",
         "prismjs": "1.20.0",
         "rxjs": "~6.5.5",
+        "save": "^2.4.0",
+        "sweetalert2": "^10.15.7",
         "tslib": "^2.0.0",
         "web-animations-js": "^2.3.2",
         "zone.js": "~0.10.3"
