@@ -89,7 +89,11 @@
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
                 <dxi-column dataField="ColorTema" caption="Color Tema">
-                    <dxo-form-item [editorOptions]="{ maxLength: 30 }">
+                    <dxo-form-item
+                        [colSpan]="2"
+                        editorType="dxTextArea"
+                        [editorOptions]="{ height: 50, maxLength: 200 }"
+                    >
                     </dxo-form-item>
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
