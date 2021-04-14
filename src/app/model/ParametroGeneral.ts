@@ -1,4 +1,4 @@
-export class ParametrosGenerales {
+export class ParametroGeneral {
 	public IdParametroGeneral: number;
 	public IdentificadorParametro: string;
 	public NombreParametro: string;

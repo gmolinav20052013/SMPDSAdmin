@@ -27,7 +27,7 @@ export class AppMainComponent {
 
     topbarUserMenuActive: boolean;
 
-    horizontal = true;
+    horizontal = false;
 
     menuActive: boolean;
 

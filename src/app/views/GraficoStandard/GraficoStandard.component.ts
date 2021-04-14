@@ -21,7 +21,13 @@ export class GraficoStandardComponent implements OnInit {
 
     title = 'myHighChartsStandard';
   highcharts = Highcharts;
-  chartOptions: any = null;
+  chartOptions: any = {
+        chart : {
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+      series: [{ }]
+        };
 
   constructor(public indicadoresservice: IndicadoresSMPDSService) { }
 
@@ -34,7 +40,7 @@ export class GraficoStandardComponent implements OnInit {
     return this.indicadoresservice.DatosGrafico(indicador).subscribe(
       (resp: any) => {
           this.chartOptions = resp.datagrafico;
-          console.log(this.chartOptions);
+         // console.log(this.chartOptions);
 
       },
       (err) => {

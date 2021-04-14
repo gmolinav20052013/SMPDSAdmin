@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { TemasService } from '../../services/Temas.service';
 import { DatoGenericoCaracter } from '../../model/datoGenerico';
 import Swal from 'sweetalert2';
+import { ConsultasService } from 'src/app/services/Consultas.service';
+import { QBSPERSP } from 'src/app/model/QBSPERSP';
 
 
 
@@ -16,10 +18,15 @@ import Swal from 'sweetalert2';
 
   nombreOpcion = 'Temas';
 
-  constructor(public temasservice: TemasService) { }
+  constructor(public temasservice: TemasService, public consultasservice: ConsultasService) {
+
+    this.obtenerPerspectivasBSC();
+
+   }
 
   nombreApp = environment.nombreApp;
   public data: Tema[] = [];
+  public perspectivas: QBSPERSP[] = [];
   public generico: DatoGenericoCaracter[] = [{ id:'A', nombre: 'Activo' }, { id:'B', nombre: 'Baja' }, {id:'I', nombre: 'Inactivo'}];
   totalRegistros = 0;
 
@@ -146,6 +153,19 @@ import Swal from 'sweetalert2';
       (resp: any) => {
           this.data = resp.temas;
           this.totalRegistros = resp.totalregistros;
+      },
+      (err) => {
+
+      }
+    );
+  }
+
+
+  obtenerPerspectivasBSC() {
+
+    return this.consultasservice.Perspectivas().subscribe(
+      (resp: any) => {
+          this.perspectivas = resp.perspectivas;
       },
       (err) => {
 

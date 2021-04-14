@@ -5,7 +5,7 @@
 	background-size: cover;
 
 	&.error {
-		background-image: url("../../layout/images/exception/bg-error.jpg");
+		background-image: url("../../layout/images/exception/bg-ex.jpg");
 
 		.exception-panel {
 			.exception-image {
@@ -20,7 +20,7 @@
 	}
 
 	&.notfound {
-		background-image: url("../../layout/images/exception/bg-404.jpg");
+		background-image: url("../../layout/images/exception/bg-ex.jpg");
 
 		.exception-panel {
 			.exception-image {
@@ -35,7 +35,7 @@
 	}
 
 	&.accessdenied {
-		background-image: url("../../layout/images/exception/bg-access.jpg");
+		background-image: url("../../layout/images/exception/bg-ex.jpg");
 
 		.exception-panel {
 			.exception-image {

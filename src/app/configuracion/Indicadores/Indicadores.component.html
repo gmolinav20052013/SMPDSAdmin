@@ -20,9 +20,9 @@
                 [allowColumnReordering]="true"
                 [showBorders]="true"
                 [rowAlternationEnabled]="true"
-                [focusedRowEnabled]="true"
                 [errorRowEnabled]="false"
                 [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
                 (onRowInserting)="onRowInserting($event)"
                 (onRowUpdating)="onRowUpdating($event)"
                 (onRowRemoving)="onRowRemoving($event)"
@@ -107,7 +107,7 @@
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
 
-                <dxi-column dataField="Drilldown" caption="Desgloce datos">
+                <dxi-column dataField="Drilldown" caption="Desagregación datos">
                     <dxo-lookup
                         [dataSource]="generico2"
                         displayExpr="nombre"

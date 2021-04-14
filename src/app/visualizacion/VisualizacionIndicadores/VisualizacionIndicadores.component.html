@@ -1,0 +1,28 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card">
+            <h4>{{ nombreOpcion }}</h4>
+            <hr />
+            <dx-select-box
+            [value]="idTema"
+            [dataSource]="temas"
+            valueExpr="IdTema"
+            displayExpr="NombreTema"
+            placeholder="Seleccione tema"
+            (onValueChanged)="TemaValueChange($event)"
+        >
+        </dx-select-box>
+        <hr />
+        </div>
+    </div>
+    <ng-container *ngFor="let indicador of data">
+        <div class="p-col-12 p-lg-6">
+            <div class="tasks card" *ngIf="indicador.IdentificadorTipoGrafico != 'map'">
+                <app-GraficoStandard [IdIndicador]='indicador.IdIndicador'></app-GraficoStandard>
+            </div>
+            <div class="tasks card" *ngIf="indicador.IdentificadorTipoGrafico == 'map'">
+                <app-GraficoMapa [IdIndicador]='indicador.IdIndicador'></app-GraficoMapa>
+            </div>
+        </div>
+    </ng-container>
+</div>

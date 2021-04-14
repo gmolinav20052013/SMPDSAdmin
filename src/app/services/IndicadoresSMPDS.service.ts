@@ -20,6 +20,20 @@ export class IndicadoresSMPDSService {
         );
     }
 
+    public DetalleGraficos(idtema: number): Observable<Indicador[]> {
+        return this.httpClient.get<Indicador[]>(
+            `${this.url}indicadores/detallegraficos?idtema=${idtema}`,
+            { responseType: "json" }
+        );
+    }
+
+    public DetalleTacometros(idtema: number): Observable<Indicador[]> {
+        return this.httpClient.get<Indicador[]>(
+            `${this.url}indicadores/detalletacometros?idtema=${idtema}`,
+            { responseType: "json" }
+        );
+    }
+
     public Eliminar(id: number): Observable<any> {
         return this.httpClient.get(`${this.url}indicadores/eliminar?id=${id}`, {
             responseType: "json",

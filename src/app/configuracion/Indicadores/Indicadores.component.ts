@@ -12,6 +12,7 @@ import { QBSINDIC } from '../../model/QBSINDIC';
 import { QBSPERSP } from 'src/app/model/QBSPERSP';
 import { ConsultasService } from '../../services/Consultas.service';
 import { DatoGenericoBoolean } from '../../model/datoGenerico';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-Indicadores',
@@ -27,14 +28,16 @@ export class IndicadoresComponent implements OnInit {
     public data: Indicador[] = [];
     public perspectivas: QBSPERSP[] = [];
     public indicadores: QBSINDIC[] = [];
-    nombreOpcion = 'Indicadores';
+    nombreOpcion = '';
+
     nombreApp = environment.nombreApp;
-    public generico: DatoGenericoCaracter[] = [{ id:'A', nombre: 'Activa' }, {id:'I', nombre: 'Inactiva'}];
+    public generico: DatoGenericoCaracter[] = [{ id:'S', nombre: 'Si' }, {id:'N', nombre: 'No'}];
     public generico2: DatoGenericoBoolean[] = [{ id: true, nombre: 'Si' }, {id: false, nombre: 'No'}];
 
   constructor(public temasservice: TemasService, public indicadoresservice: IndicadoresSMPDSService,
               public tiposgraficosservice: TiposGraficosService,
-              public consultasservice: ConsultasService) {
+              public consultasservice: ConsultasService,
+              private route: ActivatedRoute) {
 
                 this.obtenerTemas();
                 this.obtenerTiposGraficos();
@@ -43,11 +46,10 @@ export class IndicadoresComponent implements OnInit {
 
                 this.getIndicadoresBSC = this.getIndicadoresBSC.bind(this);
 
-
               }
 
   ngOnInit() {
-
+    this.nombreOpcion = this.route.snapshot.data['title'];
   }
 
   TemaValueChange(e) {
@@ -131,7 +133,7 @@ export class IndicadoresComponent implements OnInit {
   }
   onRowRemoving(e) {
 
-    let result = this.indicadoresservice.Eliminar(e.data.IdRolUsuario).toPromise();
+    let result = this.indicadoresservice.Eliminar(e.data.IdIndicador).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -163,7 +165,7 @@ export class IndicadoresComponent implements OnInit {
 
   onInitNewRow(e) {
     e.data.SecuenciaVisualizacion = 0;
-    e.data.EstadoVisualizacion='A';
+    e.data.EstadoVisualizacion='S';
     e.data.Drilldown = true;
     e.data.AgrupacionSerie = false;
     e.data.TituloEjeY = 'Valores';

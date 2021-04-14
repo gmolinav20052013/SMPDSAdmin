@@ -16,6 +16,8 @@ export class DashComponent implements OnInit {
     TiposGraficos = 0;
     ParametrosSistema = 0;
     Indicadores = 0;
+    Tacometros = 0;
+    Reportes = 0;
 
   constructor(private dashboardservice: DashboardService) { }
 

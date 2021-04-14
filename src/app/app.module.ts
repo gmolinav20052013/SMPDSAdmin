@@ -112,8 +112,10 @@ import { TemasComponent } from './tablas/Temas/Temas.component';
 import { TiposGraficosComponent } from './tablas/TiposGraficos/TiposGraficos.component';
 import { ParametrosSistemaComponent } from './configuracion/ParametrosSistema/ParametrosSistema.component';
 import { IndicadoresComponent } from './configuracion/Indicadores/Indicadores.component';
-import { VisualizacionIndicadoresComponent } from './configuracion/VisualizacionIndicadores/VisualizacionIndicadores.component';
+import { VisualizacionIndicadoresComponent } from './visualizacion/VisualizacionIndicadores/VisualizacionIndicadores.component';
 import { GraficoStandardComponent } from './views/GraficoStandard/GraficoStandard.component';
+import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionTacometros/VisualizacionTacometros.component';
+import { GraficoMapaComponent } from './views/GraficoMapa/GraficoMapa.component';
 
 
 
@@ -225,7 +227,9 @@ import { GraficoStandardComponent } from './views/GraficoStandard/GraficoStandar
         ParametrosSistemaComponent,
         IndicadoresComponent,
         VisualizacionIndicadoresComponent,
-        GraficoStandardComponent
+        VisualizacionTacometrosComponent,
+        GraficoStandardComponent,
+        GraficoMapaComponent
 
 
    ],

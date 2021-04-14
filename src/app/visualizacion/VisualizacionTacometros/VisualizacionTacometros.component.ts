@@ -6,16 +6,15 @@ import { TemasService } from 'src/app/services/Temas.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-VisualizacionIndicadores',
-  templateUrl: './VisualizacionIndicadores.component.html',
-  styleUrls: ['./VisualizacionIndicadores.component.scss']
-})
-export class VisualizacionIndicadoresComponent implements OnInit {
-
+    selector: 'app-VisualizacionTacometros',
+    templateUrl: './VisualizacionTacometros.component.html',
+    styleUrls: ['./VisualizacionTacometros.component.scss']
+  })
+  export class VisualizacionTacometrosComponent implements OnInit {
     idTema = 0;
     public temas: Tema[] = [];
     public data: Indicador[] = [];
-    nombreOpcion = 'Visualización Indicadores';
+    nombreOpcion = 'Visualización Tacómetros';
     nombreApp = environment.nombreApp;
 
   constructor(public temasservice: TemasService, public indicadoresservice: IndicadoresSMPDSService) {
@@ -32,7 +31,7 @@ export class VisualizacionIndicadoresComponent implements OnInit {
 
   obtenerIndicadores(idtema: number) {
 
-    return this.indicadoresservice.Detalle(idtema).subscribe(
+    return this.indicadoresservice.DetalleTacometros(idtema).subscribe(
       (resp: any) => {
           this.data = resp.indicadores;
       },
@@ -56,3 +55,4 @@ export class VisualizacionIndicadoresComponent implements OnInit {
   }
 
 }
+

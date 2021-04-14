@@ -10,9 +10,9 @@
                 [allowColumnReordering]="true"
                 [showBorders]="true"
                 [rowAlternationEnabled]="true"
-                [focusedRowEnabled]="true"
                 [errorRowEnabled]="false"
                 [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
                 (onRowInserting)="onRowInserting($event)"
                 (onRowUpdating)="onRowUpdating($event)"
                 (onRowRemoving)="onRowRemoving($event)"
@@ -43,7 +43,20 @@
                 >
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
-                <dxi-column dataField="NombreTema" caption="Nombre Tema">
+
+                <dxi-column
+                dataField="CODPERSP"
+                caption="Perspectiva"
+                >
+                <dxo-lookup
+                    [dataSource]="perspectivas"
+                    displayExpr="SIGLA"
+                    valueExpr="CODPERSP"
+                >
+                </dxo-lookup>
+            </dxi-column>
+
+                <!-- <dxi-column dataField="NombreTema" caption="Nombre Tema">
                     <dxo-form-item
                         [colSpan]="2"
                         [editorOptions]="{ maxLength: 100 }"
@@ -62,7 +75,7 @@
                         [editorOptions]="{ height: 50, maxLength: 300 }"
                     >
                     </dxo-form-item>
-                </dxi-column>
+                </dxi-column> -->
                 <dxi-column
                     dataField="EstadoVisualizacion"
                     caption="Estado visualización"
@@ -89,6 +102,15 @@
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
                 <dxi-column dataField="ColorTema" caption="Color Tema">
+                    <dxo-form-item
+                        [colSpan]="2"
+                        editorType="dxTextArea"
+                        [editorOptions]="{ height: 50, maxLength: 200 }"
+                    >
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+                <dxi-column dataField="ColorMapa" caption="Color Mapa">
                     <dxo-form-item
                         [colSpan]="2"
                         editorType="dxTextArea"

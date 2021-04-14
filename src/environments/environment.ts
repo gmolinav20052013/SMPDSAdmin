@@ -4,7 +4,8 @@
 
 export const environment = {
     apiUrl: 'http://localhost:1379/',
-   nombreApp: 'Sistema de Monitoreo de Indicadores del Plan Social',
+    // apiUrl: 'http://52.188.107.234/smpds/services/',
+   nombreApp: 'Sistema Administrativo de Monitoreo de Indicadores del Plan Social',
   production: false
 };
 

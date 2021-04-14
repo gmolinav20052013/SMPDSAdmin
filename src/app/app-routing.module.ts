@@ -18,7 +18,8 @@ import { TiposGraficosComponent } from './tablas/TiposGraficos/TiposGraficos.com
 import { TemasComponent } from './tablas/Temas/Temas.component';
 import { ParametrosSistemaComponent } from './configuracion/ParametrosSistema/ParametrosSistema.component';
 import { IndicadoresComponent } from './configuracion/Indicadores/Indicadores.component';
-import { VisualizacionIndicadoresComponent } from './configuracion/VisualizacionIndicadores/VisualizacionIndicadores.component';
+import { VisualizacionIndicadoresComponent } from './visualizacion/VisualizacionIndicadores/VisualizacionIndicadores.component';
+import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionTacometros/VisualizacionTacometros.component';
 
 
 
@@ -30,15 +31,66 @@ import { VisualizacionIndicadoresComponent } from './configuracion/Visualizacion
                 path: '', component: AppMainComponent, canActivate: [CanActivateGuardService] ,
                 children: [
                     {path: '', component: DashComponent , canActivate: [CanActivateGuardService] },
-                    {path: 'rolesusuario', component: RolesUsuariosComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'usuarios', component: UsuariosComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'opcionessistema', component: OpcionesSistemaComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'opcionesrol', component: OpcionesRolComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'tiposgraficos', component: TiposGraficosComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'temas', component: TemasComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'parametrossistema', component: ParametrosSistemaComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'indicadores', component: IndicadoresComponent , canActivate: [CanActivateGuardService]},
-                    {path: 'visualizacion', component: VisualizacionIndicadoresComponent , canActivate: [CanActivateGuardService]},
+                    {path: 'rolesusuario', component: RolesUsuariosComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Roles de usuarios',
+                            ruta: 'OPCRolesUsuarios'
+                        }
+                    },
+                    {path: 'usuarios', component: UsuariosComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Usuarios',
+                            ruta: 'OPCUsuarios'
+                        }
+                    },
+                    {path: 'opcionessistema', component: OpcionesSistemaComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Opciones del sistema',
+                            ruta: 'OPCOpcionessistema'
+                        }
+                    },
+                    {path: 'opcionesrol', component: OpcionesRolComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Opciones de sistema por rol de usuario',
+                            ruta: 'OPCOpcionessistemaxrol'
+                        }
+                    },
+                    {path: 'tiposgraficos', component: TiposGraficosComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Tipos de gráficos',
+                            ruta: 'OPCTiposgraficos'
+                        }
+                    },
+                    {path: 'temas', component: TemasComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Temas',
+                            ruta: 'OPCTemas'
+                        }
+                    },
+                    {path: 'parametrossistema', component: ParametrosSistemaComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Parámetros del sistema',
+                            ruta: 'OPCparametrossistema'
+                        }
+                    },
+                    {path: 'indicadores', component: IndicadoresComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Indicadores',
+                            ruta: 'OPCIndicadores'
+                        }
+                    },
+                    {path: 'visuaindicadores', component: VisualizacionIndicadoresComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Visualización indicadores',
+                            ruta: 'OPCVisualizacionIndicadores'
+                        }
+                    },
+                    {path: 'visuatacometros', component: VisualizacionTacometrosComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Visualización tacometros',
+                            ruta: 'OPCVisualizacionTacometros'
+                        }
+                    },
                 ]
             },
             {path: 'error', component: AppErrorComponent},

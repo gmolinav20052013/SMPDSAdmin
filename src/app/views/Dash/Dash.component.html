@@ -1,181 +1,260 @@
 <div class="dashboard">
     <div class="p-grid dashboard-grid">
-        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/rolesusuario">
-                <div class="card">
-                    <div class="summary-box-title">Roles de usuarios</div>
-                    <p>{{ RolesUsuarios }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Roles de usuarios</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de roles de usuarios
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ RolesUsuarios }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
 
-
-        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/usuarios">
-                <div class="card">
-                    <div class="summary-box-title">Usuarios</div>
-                    <p>{{ Usuarios }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Usuarios</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de usuarios
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Usuarios }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
 
-        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/opcionessistema">
-                <div class="card">
-                    <div class="summary-box-title">Opciones sistema</div>
-                    <p>{{ OpcionesSistemas }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Opciones del sistema</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de opciones del sistema
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ OpcionesSistemas }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
 
-
-        <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/opcionesrol">
-                <div class="card">
-                    <div class="summary-box-title">Opciones x Rol</div>
-                    <p>{{ OpcionesRol }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-messages.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Opciones de sistema por rol de usuario</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de opciones de sistema por rol de usuario
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ OpcionesRol }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
+
     </div>
 
     <div class="p-grid dashboard-grid">
-        <div class="p-col-12 p-md-3 summary-box summary-box-filessynced">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/tiposgraficos">
-                <div class="card">
-                    <div class="summary-box-title">Tipos de gráficos</div>
-                    <p>{{ TiposGraficos }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-filessynced.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-filessynced.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Tipos de gráficos</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de tipos de gráficos
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ TiposGraficos }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
-
-        <div class="p-col-12 p-md-3 summary-box summary-box-filessynced">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/temas">
-                <div class="card">
-                    <div class="summary-box-title">Temas</div>
-                    <p>{{ Temas }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-filessynced.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-filessynced.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Temas</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de temas
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Temas }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
     </div>
 
     <div class="p-grid dashboard-grid">
-        <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/parametrossistema">
-                <div class="card">
-                    <div class="summary-box-title">Parámetros del sistema</div>
-                    <p>{{ ParametrosSistema }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-usersonline.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-usersonline.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Parámetros del sistema</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de parámetros del sistema
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ ParametrosSistema }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
-
-        <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
+        <div class="p-col-12 p-md-3">
             <a routerLink="/indicadores">
-                <div class="card">
-                    <div class="summary-box-title">Indicadores</div>
-                    <p>{{ Indicadores }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-usersonline.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-usersonline.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Indicadores</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de indicadores
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Indicadores }}
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
-
-        <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
-            <a routerLink="/visualizacion">
-                <div class="card">
-                    <div class="summary-box-title">Visualización Indicadores</div>
-                    <p>{{ Indicadores }}</p>
-                    <img
-                        src="assets/layout/images/dashboard/icon-usersonline.svg"
-                        alt="sapphire"
-                        class="summary-box-icon"
-                    />
-                    <img
-                        src="assets/layout/images/dashboard/graph-usersonline.svg"
-                        alt="sapphire"
-                        class="summary-box-graph"
-                    />
-                </div>
-            </a>
-        </div>
-
     </div>
+
+    <div class="p-grid dashboard-grid">
+        <div class="p-col-12 p-md-3">
+            <a routerLink="/visuaindicadores">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Visualización indicadores</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Visualización indicadores
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Indicadores }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="p-col-12 p-md-3">
+            <a routerLink="/visuatacometros">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Visualización tacómetros</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Visualización de tacómetros
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Tacometros }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="p-col-12 p-md-3">
+            <a routerLink="/visuatacometros">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Visualización reportes</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Visualización de reportes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Reportes }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
 </div>

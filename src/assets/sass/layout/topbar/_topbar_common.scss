@@ -96,6 +96,12 @@
         }
     }
 
+    .layout-title {
+        img {
+            height: 60px;
+        }
+    }
+
 
     .layout-topbar-search {
         .p-inputtext {
@@ -261,6 +267,10 @@
         }
 
         .layout-topbar-title {
+            display: none;
+        }
+
+        .layout-title {
             display: none;
         }
 

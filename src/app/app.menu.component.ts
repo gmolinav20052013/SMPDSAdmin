@@ -14,25 +14,42 @@ export class AppMenuComponent implements OnInit {
     ngOnInit() {
         this.model = [
             {   label: 'Inicio', icon: '', routerLink: ['/']
-            }
-            // {
-            //     label: 'Tablas', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation'],
-            //     items: [
-            //         {label: 'Tipos de gráficos', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
-            //         {label: 'Temas', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
-            //     ]
-            // },
-            // {
-            //     label: 'Configuración', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation'],
-            //     items: [
-            //         {label: 'Parámetros del sistema', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
-            //         {label: 'Indicadores', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
-            //     ]
-            // },
+            },
+            {
+                label: 'Seguridad', icon: 'pi pi-lock',
+                items: [
+                    {label: 'Roles de usuario',  routerLink: ['/rolesusuario']},
+                    {label: 'Usuarios',  routerLink: ['/usuarios']},
+                    {label: 'Opciones de Sistema',  routerLink: ['/opcionessistema']},
+                    {label: 'Opciones por rol',  routerLink: ['/opcionesrol']},
+                ]
+            },
+            {
+                label: 'Tablas', icon: 'pi pi-list',
+                items: [
+                    {label: 'Tipos de gráficos',  routerLink: ['/tiposgraficos']},
+                    {label: 'Temas',  routerLink: ['/temas']},
+                ]
+            },
+            {
+                label: 'Configuración', icon: 'pi pi-cog',
+                items: [
+                    {label: 'Parámetros del sistema',  routerLink: ['/parametrossistema']},
+                    {label: 'Indicadores',  routerLink: ['/indicadores']},
+                ]
+            },
+            {
+                label: 'Visualización', icon: 'pi pi-chart-bar',
+                items: [
+                    {label: 'Indicadores',  routerLink: ['/visuaindicadores']},
+                    {label: 'Tacómetros',  routerLink: ['/visuatacometros']},
+                    {label: 'Reportes',  routerLink: ['/visuareportes']},
+                ]
+            },
             // {
             //     label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
             //     items: [
-            //         {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+            //         {label: 'Form Layout',  routerLink: ['/uikit/formlayout']},
             //         {label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input']},
             //         {label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'},
             //         {label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']},
@@ -54,7 +71,7 @@ export class AppMenuComponent implements OnInit {
             //         {
             //             label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
             //             items: [
-            //                 {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+            //                 {label: 'Form Layout',  routerLink: ['/uikit/formlayout']},
             //                 {label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input']},
             //                 {label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'},
             //                 {label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']},

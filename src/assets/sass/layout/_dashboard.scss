@@ -162,18 +162,22 @@
 
         .tasks-progress {
             height: 7px;
-            background-color: #00bcd4;
+            background-color: #313945;
+            // background-color: #BCA078;
 
             .tasks-progress-value {
                 height: 7px;
                 width: 50%;
-                background-color: #0097a7;
+                background-color: #313945;
+                // background-color: #607D8B;
+
             }
         }
 
         .tasks-header {
             padding: 16px;
             background-color: #eeeeee;
+            font-weight: bold;
 
             .task-number {
                 font-weight: 700;
