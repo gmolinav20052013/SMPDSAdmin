@@ -1,10 +1,10 @@
 <div class="dashboard">
-    <div class="p-grid dashboard-grid">
+    <!-- <div class="p-grid dashboard-grid">
         <div class="p-col-12 p-md-3">
             <a routerLink="/rolesusuario">
                 <div class="tasks card">
                     <div class="tasks-progress">
-                        <!-- <div class="tasks-progress-value"></div> -->
+
                     </div>
                     <div class="tasks-header">Roles de usuarios</div>
                     <div class="p-grid p-nogutter">
@@ -27,7 +27,7 @@
             <a routerLink="/usuarios">
                 <div class="tasks card">
                     <div class="tasks-progress">
-                        <!-- <div class="tasks-progress-value"></div> -->
+
                     </div>
                     <div class="tasks-header">Usuarios</div>
                     <div class="p-grid p-nogutter">
@@ -50,7 +50,7 @@
             <a routerLink="/opcionessistema">
                 <div class="tasks card">
                     <div class="tasks-progress">
-                        <!-- <div class="tasks-progress-value"></div> -->
+
                     </div>
                     <div class="tasks-header">Opciones del sistema</div>
                     <div class="p-grid p-nogutter">
@@ -73,7 +73,7 @@
             <a routerLink="/opcionesrol">
                 <div class="tasks card">
                     <div class="tasks-progress">
-                        <!-- <div class="tasks-progress-value"></div> -->
+
                     </div>
                     <div class="tasks-header">Opciones de sistema por rol de usuario</div>
                     <div class="p-grid p-nogutter">
@@ -92,7 +92,7 @@
             </a>
         </div>
 
-    </div>
+    </div> -->
 
     <div class="p-grid dashboard-grid">
         <div class="p-col-12 p-md-3">
@@ -139,6 +139,28 @@
                 </div>
             </a>
         </div>
+        <div class="p-col-12 p-md-3">
+            <a routerLink="/reportes">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Reportes</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de reportes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Reportes }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 
     <div class="p-grid dashboard-grid">
@@ -180,7 +202,7 @@
                             </div>
                         </div>
                         <div class="p-col-fixed p-col-align-center">
-                            {{ Indicadores }}
+                            {{ Indicadores + Tacometros }}
                         </div>
                     </div>
                 </div>
@@ -233,11 +255,11 @@
                 </div>
             </a>
         </div>
-        <div class="p-col-12 p-md-3">
+        <!-- <div class="p-col-12 p-md-3">
             <a routerLink="/visuatacometros">
                 <div class="tasks card">
                     <div class="tasks-progress">
-                        <!-- <div class="tasks-progress-value"></div> -->
+                         <div class="tasks-progress-value"></div>
                     </div>
                     <div class="tasks-header">Visualización reportes</div>
                     <div class="p-grid p-nogutter">
@@ -254,7 +276,7 @@
                     </div>
                 </div>
             </a>
-        </div>
+        </div> -->
     </div>
 
 </div>

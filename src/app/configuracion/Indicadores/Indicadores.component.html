@@ -155,6 +155,20 @@
                 </dxi-column>
 
                 <dxi-column
+                dataField="NumeroDecimalesFormato"
+                caption="Número decimales formato"
+                datatype="number"
+                format="##0"
+                >
+                <dxo-form-item
+                    editorType="dxNumberBox"
+                    [editorOptions]="{ format: '000', min: 0, max: 999 }"
+                >
+                </dxo-form-item>
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+
+                <!-- <dxi-column
                     dataField="FormatoVisualizacionDato"
                     caption="Formato visualización dato"
                     [visible]="false"
@@ -165,9 +179,9 @@
                         [editorOptions]="{ height: 50, maxLength: 100 }"
                     >
                     </dxo-form-item>
-                </dxi-column>
+                </dxi-column> -->
 
-                <dxi-column
+                <!-- <dxi-column
                     dataField="FormatoTooltipEncabezado"
                     caption="Formato tooltip encabezado"
                     [visible]="false"
@@ -178,9 +192,9 @@
                         [editorOptions]="{ height: 50, maxLength: 200 }"
                     >
                     </dxo-form-item>
-                </dxi-column>
+                </dxi-column> -->
 
-                <dxi-column
+                <!-- <dxi-column
                     dataField="FormatoTooltipDato"
                     caption="Formato tooltip dato"
                     [visible]="false"
@@ -191,7 +205,7 @@
                         [editorOptions]="{ height: 50, maxLength: 200 }"
                     >
                     </dxo-form-item>
-                </dxi-column>
+                </dxi-column> -->
             </dx-data-grid>
         </div>
     </div>

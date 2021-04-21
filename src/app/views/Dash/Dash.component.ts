@@ -40,6 +40,8 @@ export class DashComponent implements OnInit {
         this.TiposGraficos = resp.tiposgraficos;
         this.ParametrosSistema = resp.parametrossistema;
         this.Indicadores = resp.indicadores;
+        this.Tacometros = resp.tacometros;
+        this.Reportes = resp.reportes;
 
       },
       (err) => {

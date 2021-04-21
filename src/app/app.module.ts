@@ -116,6 +116,7 @@ import { VisualizacionIndicadoresComponent } from './visualizacion/Visualizacion
 import { GraficoStandardComponent } from './views/GraficoStandard/GraficoStandard.component';
 import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionTacometros/VisualizacionTacometros.component';
 import { GraficoMapaComponent } from './views/GraficoMapa/GraficoMapa.component';
+import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
 
 
 
@@ -229,7 +230,8 @@ import { GraficoMapaComponent } from './views/GraficoMapa/GraficoMapa.component'
         VisualizacionIndicadoresComponent,
         VisualizacionTacometrosComponent,
         GraficoStandardComponent,
-        GraficoMapaComponent
+        GraficoMapaComponent,
+        ReportesComponent
 
 
    ],

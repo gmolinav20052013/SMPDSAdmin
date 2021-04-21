@@ -7,7 +7,7 @@
             <dx-data-grid
             id="gridContainer"
             [dataSource]="data"
-            keyExpr="IdParametroGeneral"
+            keyExpr="IdReporte"
             [allowColumnReordering]="true"
             [showBorders]="true"
             [rowAlternationEnabled]="true"
@@ -31,50 +31,57 @@
                 [visible]="true"
                 [width]="240"
                 placeholder="Buscar..."></dxo-search-panel>
-            <dxi-column dataField="IdParametroGeneral" [visible]="false">
+            <dxi-column dataField="IdReporte" [visible]="false">
                 <dxo-form-item [visible]="false">
                 </dxo-form-item>
               </dxi-column>
-            <dxi-column dataField="IdentificadorParametro"
-                      caption="Identificador parámetro"
-                      [editorOptions]="{ maxLength: 40 }"
-                       >
-                      <dxi-validation-rule type="required"></dxi-validation-rule>
-                    </dxi-column>
-            <dxi-column dataField="NombreParametro"
-                        caption="Nombre parámetro"
-                        [editorOptions]="{ maxLength: 60 }"
+            <dxi-column dataField="NombreReporte"
+                        caption="Nombre Reporte"
+                        [editorOptions]="{ maxLength: 100 }"
                          >
+                         <dxo-form-item
+                         [colSpan]="2"
+                         [editorOptions]="{  maxLength: 100 }">
+                     </dxo-form-item>
                          <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
-            <dxi-column dataField="DescripcionParametro" caption="Descripción parámetro" >
+            <dxi-column
+            dataField="EstadoActivo"
+            caption="Visualización" >
+            <dxo-lookup
+                [dataSource]="generico"
+                displayExpr="nombre"
+                valueExpr="id">
+            </dxo-lookup>
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-column>
+        <dxi-column
+                    dataField="SecuenciaDespliegue"
+                    caption="Secuencia"
+                    datatype="number"
+                    format="##0"
+                >
+                    <dxo-form-item
+                        editorType="dxNumberBox"
+                        [editorOptions]="{ format: '000', min: 1, max: 999 }"
+                    >
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+            <dxi-column dataField="Urlpdf" caption="URL PDF" >
               <dxo-form-item
                         [colSpan]="2"
                         editorType="dxTextArea"
                         [editorOptions]="{ height: 50, maxLength: 200 }">
                     </dxo-form-item>
             </dxi-column>
-              <dxi-column
-                dataField="TipoDatoParametro"
-                caption="Tipo dato" >
+            <dxi-column dataField="Urlxls" caption="URL Excel" >
                 <dxo-form-item
-                [colSpan]="2">
-                </dxo-form-item>
-                <dxo-lookup
-                    [dataSource]="generico"
-                    displayExpr="nombre"
-                    valueExpr="id">
-                </dxo-lookup>
-                <dxi-validation-rule type="required"></dxi-validation-rule>
-            </dxi-column>
-            <dxi-column dataField="ValorParametro" caption="Valor parámetro" >
-                <dxo-form-item
-                [colSpan]="2"
-                editorType="dxTextArea"
-                [editorOptions]="{ height: 100, maxLength: 1000 }">
-            </dxo-form-item>
-            <dxi-validation-rule type="required"></dxi-validation-rule>
-            </dxi-column>
+                          [colSpan]="2"
+                          editorType="dxTextArea"
+                          [editorOptions]="{ height: 50, maxLength: 200 }">
+                      </dxo-form-item>
+              </dxi-column>
         </dx-data-grid>
         </div>
     </div>

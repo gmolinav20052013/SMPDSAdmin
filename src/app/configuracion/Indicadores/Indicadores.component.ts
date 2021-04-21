@@ -169,11 +169,12 @@ export class IndicadoresComponent implements OnInit {
     e.data.Drilldown = true;
     e.data.AgrupacionSerie = false;
     e.data.TituloEjeY = 'Valores';
-    e.data.FormatoVisualizacionDato = "<span style='color:{point.color}'>{point.name}</span>: <b>{point.y:.1f}</b><br/>";
-    e.data.FormatoTooltipEncabezado = "<span style='font-size:11px'>{series.name}</span><br>";
-    e.data.FormatoTooltipDato = "{point.y:.1f}";
+    // e.data.FormatoVisualizacionDato = "<span style='color:{point.color}'>{point.name}</span>: <b>{point.y:.1f}</b><br/>";
+    // e.data.FormatoTooltipEncabezado = "<span style='font-size:11px'>{series.name}</span><br>";
+    // e.data.FormatoTooltipDato = "{point.y:.1f}";
     e.data.TituloEjeX = 'Valor';
     e.data.TituloEjeXDrilldown = '%';
+    e.data.NumeroDecimalesFormato = 1;
 
   }
 

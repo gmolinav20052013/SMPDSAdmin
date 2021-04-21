@@ -20,6 +20,7 @@ import { ParametrosSistemaComponent } from './configuracion/ParametrosSistema/Pa
 import { IndicadoresComponent } from './configuracion/Indicadores/Indicadores.component';
 import { VisualizacionIndicadoresComponent } from './visualizacion/VisualizacionIndicadores/VisualizacionIndicadores.component';
 import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionTacometros/VisualizacionTacometros.component';
+import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
 
 
 
@@ -77,6 +78,12 @@ import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionT
                         data: {
                             title: 'Indicadores',
                             ruta: 'OPCIndicadores'
+                        }
+                    },
+                    {path: 'reportes', component: ReportesComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Reportes',
+                            ruta: 'OPCReportes'
                         }
                     },
                     {path: 'visuaindicadores', component: VisualizacionIndicadoresComponent , canActivate: [CanActivateGuardService],
