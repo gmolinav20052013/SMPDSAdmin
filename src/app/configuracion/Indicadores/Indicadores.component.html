@@ -20,6 +20,7 @@
                 [allowColumnReordering]="true"
                 [showBorders]="true"
                 [rowAlternationEnabled]="true"
+                [masterDetail]="{ enabled: true, template: 'detail', autoExpandAll: false  }"
                 [errorRowEnabled]="false"
                 [hoverStateEnabled]="true"
                 [wordWrapEnabled]="true"
@@ -28,7 +29,7 @@
                 (onRowRemoving)="onRowRemoving($event)"
                 (onInitNewRow)="onInitNewRow($event)"
                 (onInitialized)="onInitialized($event)"
-            >
+                (onEditorPreparing)="onEditorPreparing($event)">
                 <dxo-filter-row [visible]="true"></dxo-filter-row>
                 <dxo-header-filter [visible]="true"></dxo-header-filter>
                 <dxo-paging [enabled]="true" [pageSize]="20"></dxo-paging>
@@ -67,6 +68,7 @@
                         [dataSource]="perspectivas"
                         displayExpr="SIGLA"
                         valueExpr="CODPERSP"
+                        [allowClearing]="true"
                     >
                     </dxo-lookup>
                 </dxi-column>
@@ -76,8 +78,19 @@
                         [dataSource]="getIndicadoresBSC"
                         displayExpr="SIGLA"
                         valueExpr="CODINDIC"
+                        [allowClearing]="true"
                     >
                     </dxo-lookup>
+                </dxi-column>
+
+                <dxi-column
+                dataField="SIGLA"
+                caption="Titulo"
+                dataType="string"
+                [visible]="false"  >
+                    <dxo-form-item [colSpan]="2"
+                    [editorOptions]="{ maxLength: 200 }">
+                    </dxo-form-item>
                 </dxi-column>
 
                 <dxi-column
@@ -127,6 +140,16 @@
                     <!-- <dxi-validation-rule type="required"></dxi-validation-rule> -->
                 </dxi-column>
 
+                <dxi-column dataField="ComparativoPais" caption="Valor Nacional">
+                    <dxo-lookup
+                        [dataSource]="generico2"
+                        displayExpr="nombre"
+                        valueExpr="id"
+                    >
+                    </dxo-lookup>
+                    <!-- <dxi-validation-rule type="required"></dxi-validation-rule> -->
+                </dxi-column>
+
                 <dxi-column
                     dataField="TituloEjeX"
                     caption="Titulo Eje X"
@@ -167,6 +190,10 @@
                 </dxo-form-item>
                 <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
+
+            <div *dxTemplate="let detailrequisito of 'detail'">
+                <app-DetalleIndicadores [IdIndicador]="detailrequisito.key"></app-DetalleIndicadores>
+            </div>
 
                 <!-- <dxi-column
                     dataField="FormatoVisualizacionDato"

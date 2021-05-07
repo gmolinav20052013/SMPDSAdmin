@@ -1,12 +1,12 @@
 <div class="p-grid">
     <div class="p-col-12">
         <div class="card">
-            <h4>{{ nombreOpcion }}</h4>
+            <h4>Detalle Indicadores</h4>
             <hr />
             <dx-data-grid
                 id="gridContainer"
                 [dataSource]="data"
-                keyExpr="IdTipoGrafico"
+                keyExpr="IdDetalleIndicador"
                 [allowColumnReordering]="true"
                 [showBorders]="true"
                 [rowAlternationEnabled]="true"
@@ -18,7 +18,7 @@
                 (onRowRemoving)="onRowRemoving($event)"
                 (onInitNewRow)="onInitNewRow($event)"
                 (onInitialized)="onInitialized($event)"
-            >
+                (onEditorPreparing)="onEditorPreparing($event)">
                 <dxo-filter-row [visible]="true"></dxo-filter-row>
                 <dxo-header-filter [visible]="true"></dxo-header-filter>
                 <dxo-paging [enabled]="true" [pageSize]="20"></dxo-paging>
@@ -26,7 +26,7 @@
                     mode="form"
                     [allowUpdating]="true"
                     [allowDeleting]="true"
-                    [allowAdding]="true"
+                    [allowAdding]="IdIndicador > 0"
                 >
                 </dxo-editing>
                 <dxo-search-panel
@@ -34,41 +34,62 @@
                     [width]="240"
                     placeholder="Buscar..."
                 ></dxo-search-panel>
-                <dxi-column dataField="IdTipoGrafico" [visible]="false">
+                <dxi-column dataField="IdDetalleIndicador" [visible]="false">
                     <dxo-form-item [visible]="false"> </dxo-form-item>
                 </dxi-column>
+
+
                 <dxi-column
-                    dataField="IdentificadorTipoGrafico"
-                    caption="Código Identificador"
-                    [visible]="true"
-                >
-                <dxo-form-item
-                        [editorOptions]="{ maxLength: 20 }"
-                    >
-                    </dxo-form-item>
-                    <dxi-validation-rule type="required"></dxi-validation-rule>
-                </dxi-column>
-                <dxi-column dataField="NombreTipoGrafico" caption="Nombre Tipo Gráfico">
-                    <dxo-form-item
-                        [colSpan]="2"
-                        width="100%"
-                        [editorOptions]="{ maxLength: 60 }"
-                    >
-                    </dxo-form-item>
-                    <dxi-validation-rule type="required"></dxi-validation-rule>
-                </dxi-column>
-                <dxi-column
-                    dataField="EstadoActivo"
-                    caption="Estado"
+                    dataField="CODPERSP"
+                    caption="Perspectiva"
+                    [setCellValue]="setIndicadorBSCValue"
                 >
                     <dxo-lookup
-                        [dataSource]="generico"
-                        displayExpr="nombre"
-                        valueExpr="id"
+                        [dataSource]="perspectivas"
+                        displayExpr="SIGLA"
+                        valueExpr="CODPERSP"
+                        [allowClearing]="true"
                     >
                     </dxo-lookup>
+                </dxi-column>
+
+                <dxi-column dataField="CODINDIC" caption="Indicador BSC">
+                    <dxo-lookup
+                        [dataSource]="getIndicadoresBSC"
+                        displayExpr="SIGLA"
+                        valueExpr="CODINDIC"
+                        [allowClearing]="true"
+                    >
+                    </dxo-lookup>
+                </dxi-column>
+
+                <dxi-column
+                dataField="SIGLA"
+                caption="Titulo Serie"
+                dataType="string"
+                >
+                    <dxo-form-item [colSpan]="2"
+                    [editorOptions]="{ maxLength: 200 }">
+                    </dxo-form-item>
+                </dxi-column>
+
+                <dxi-column
+                    dataField="SecuenciaVisualizacion"
+                    caption="Secuencia"
+                    datatype="number"
+                    format="##0"
+                >
+                    <dxo-form-item
+                        editorType="dxNumberBox"
+                        [editorOptions]="{ format: '000', min: 0, max: 999 }"
+                    >
+                    </dxo-form-item>
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
+
+
+
+
             </dx-data-grid>
         </div>
     </div>

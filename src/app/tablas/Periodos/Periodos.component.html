@@ -6,7 +6,7 @@
             <dx-data-grid
                 id="gridContainer"
                 [dataSource]="data"
-                keyExpr="IdTipoGrafico"
+                keyExpr="IdPeriodo"
                 [allowColumnReordering]="true"
                 [showBorders]="true"
                 [rowAlternationEnabled]="true"
@@ -34,32 +34,29 @@
                     [width]="240"
                     placeholder="Buscar..."
                 ></dxo-search-panel>
-                <dxi-column dataField="IdTipoGrafico" [visible]="false">
+                <dxi-column dataField="IdPeriodo" [visible]="false">
                     <dxo-form-item [visible]="false"> </dxo-form-item>
                 </dxi-column>
+
                 <dxi-column
-                    dataField="IdentificadorTipoGrafico"
-                    caption="Código Identificador"
-                    [visible]="true"
-                >
+                dataField="AnioPeriodo"
+                caption="Período"
+                datatype="number"
+                format="###0"
+            >
                 <dxo-form-item
-                        [editorOptions]="{ maxLength: 20 }"
-                    >
-                    </dxo-form-item>
-                    <dxi-validation-rule type="required"></dxi-validation-rule>
-                </dxi-column>
-                <dxi-column dataField="NombreTipoGrafico" caption="Nombre Tipo Gráfico">
-                    <dxo-form-item
-                        [colSpan]="2"
-                        width="100%"
-                        [editorOptions]="{ maxLength: 60 }"
-                    >
-                    </dxo-form-item>
-                    <dxi-validation-rule type="required"></dxi-validation-rule>
-                </dxi-column>
+                    editorType="dxNumberBox"
+                    [editorOptions]="{ format: '0000', min: 2000, max: 9999 }"
+                >
+                </dxo-form-item>
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+
+
+
                 <dxi-column
-                    dataField="EstadoActivo"
-                    caption="Estado"
+                    dataField="EstadoVisualizacion"
+                    caption="Estado visualización"
                 >
                     <dxo-lookup
                         [dataSource]="generico"
@@ -69,6 +66,8 @@
                     </dxo-lookup>
                     <dxi-validation-rule type="required"></dxi-validation-rule>
                 </dxi-column>
+
+
             </dx-data-grid>
         </div>
     </div>

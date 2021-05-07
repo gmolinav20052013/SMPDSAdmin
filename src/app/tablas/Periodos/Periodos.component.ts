@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { Tema } from 'src/app/model/Tema';
 import { environment } from 'src/environments/environment';
-import { TiposGraficosService } from '../../services/TiposGraficos.service';
 import { DatoGenericoCaracter } from '../../model/datoGenerico';
 import Swal from 'sweetalert2';
-import { TipoGrafico } from '../../model/TipoGrafico';
+import { ConsultasService } from 'src/app/services/Consultas.service';
+import { QBSPERSP } from 'src/app/model/QBSPERSP';
+import { PeriodosService } from 'src/app/services/Periodos.service';
+import { Periodo } from '../../model/Periodo';
+
 
 
 @Component({
-    selector: 'app-TiposGraficos',
-    templateUrl: './TiposGraficos.component.html',
-    styleUrls: ['./TiposGraficos.component.scss']
+    selector: 'app-Periodos',
+    templateUrl: './Periodos.component.html',
+    styleUrls: ['./Periodos.component.scss']
   })
-  export class TiposGraficosComponent implements OnInit {
+  export class PeriodosComponent implements OnInit {
 
-  nombreOpcion = 'Tipos de Gráficos';
+  nombreOpcion = 'Períodos';
 
-  constructor(public tiposgraficosservice: TiposGraficosService) { }
+  constructor(public periodosservice: PeriodosService) {
+
+
+
+   }
 
   nombreApp = environment.nombreApp;
-  public data: TipoGrafico[] = [];
+  public data: Periodo[] = [];
   public generico: DatoGenericoCaracter[] = [{ id:'A', nombre: 'Activo' }, {id:'I', nombre: 'Inactivo'}];
   totalRegistros = 0;
 
   ngOnInit() {
 
-    this.obtenerTipos();
+    this.obtenerPeriodos();
 
   }
 
@@ -39,9 +47,9 @@ import { TipoGrafico } from '../../model/TipoGrafico';
 
   onRowInserting(e) {
 
-    const dataActu: TipoGrafico = {...e.data};
+    const dataActu: Periodo = {...e.data};
 
-    let result = this.tiposgraficosservice.Adicionar(dataActu).toPromise();
+    let result = this.periodosservice.Adicionar(dataActu).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -53,7 +61,7 @@ import { TipoGrafico } from '../../model/TipoGrafico';
               });
 
               resolve();
-              this.obtenerTipos();
+              this.obtenerPeriodos();
 
       })
       .catch((error) => {
@@ -71,9 +79,9 @@ import { TipoGrafico } from '../../model/TipoGrafico';
   }
   onRowUpdating(e) {
 
-    const dataActu: TipoGrafico = {...e.oldData, ...e.newData};
+    const dataActu: Periodo = {...e.oldData, ...e.newData};
 
-    let result = this.tiposgraficosservice.Actualizar(dataActu).toPromise();
+    let result = this.periodosservice.Actualizar(dataActu).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -105,7 +113,7 @@ import { TipoGrafico } from '../../model/TipoGrafico';
   }
   onRowRemoving(e) {
 
-    let result = this.tiposgraficosservice.Eliminar(e.data.IdTipoGrafico).toPromise();
+    let result = this.periodosservice.Eliminar(e.data.IdPeriodo).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -117,7 +125,7 @@ import { TipoGrafico } from '../../model/TipoGrafico';
               });
 
               resolve();
-              this.obtenerTipos();
+              this.obtenerPeriodos();
 
       })
       .catch((error) => {
@@ -136,14 +144,14 @@ import { TipoGrafico } from '../../model/TipoGrafico';
   }
 
   onInitNewRow(e) {
-    e.data.EstadoActivo = 'A';
+    e.data.EstadoVisualizacion = 'A';
   }
 
-  obtenerTipos() {
+  obtenerPeriodos() {
 
-    return this.tiposgraficosservice.Detalle('').subscribe(
+    return this.periodosservice.Detalle().subscribe(
       (resp: any) => {
-          this.data = resp.tipos;
+          this.data = resp.periodos;
           this.totalRegistros = resp.totalregistros;
       },
       (err) => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DatoGenericoCaracter } from 'src/app/model/datoGenerico';
 import { Tema } from 'src/app/model/Tema';
 import { TemasService } from 'src/app/services/Temas.service';
@@ -13,19 +13,21 @@ import { QBSPERSP } from 'src/app/model/QBSPERSP';
 import { ConsultasService } from '../../services/Consultas.service';
 import { DatoGenericoBoolean } from '../../model/datoGenerico';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { DetalleIndicador } from 'src/app/model/DetalleIndicador';
+import { DetalleIndicadoresService } from 'src/app/services/DetalleIndicadores.service';
 
 @Component({
-  selector: 'app-Indicadores',
-  templateUrl: './Indicadores.component.html',
-  styleUrls: ['./Indicadores.component.scss']
-})
-export class IndicadoresComponent implements OnInit {
+    selector: 'app-DetalleIndicadores',
+    templateUrl: './DetalleIndicadores.component.html',
+    styleUrls: ['./DetalleIndicadores.component.scss']
+  })
+  export class DetalleIndicadoresComponent implements OnInit {
 
 
-    idTema = 0;
-    public temas: Tema[] = [];
+    @Input() IdIndicador: number;
+
     public tiposgraficos: TipoGrafico[] = [];
-    public data: Indicador[] = [];
+    public data: DetalleIndicador[] = [];
     public perspectivas: QBSPERSP[] = [];
     public indicadores: QBSINDIC[] = [];
     nombreOpcion = '';
@@ -34,13 +36,10 @@ export class IndicadoresComponent implements OnInit {
     public generico: DatoGenericoCaracter[] = [{ id:'S', nombre: 'Si' }, {id:'N', nombre: 'No'}];
     public generico2: DatoGenericoBoolean[] = [{ id: true, nombre: 'Si' }, {id: false, nombre: 'No'}];
 
-  constructor(public temasservice: TemasService, public indicadoresservice: IndicadoresSMPDSService,
-              public tiposgraficosservice: TiposGraficosService,
+  constructor(public temasservice: TemasService, public detalleindicadoresservice: DetalleIndicadoresService,
               public consultasservice: ConsultasService,
               private route: ActivatedRoute) {
 
-                this.obtenerTemas();
-                this.obtenerTiposGraficos();
                 this.obtenerPerspectivasBSC();
                 this.obtenerIndicadoresBSC();
 
@@ -49,12 +48,7 @@ export class IndicadoresComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.nombreOpcion = this.route.snapshot.data['title'];
-  }
-
-  TemaValueChange(e) {
-    this.idTema = e.value;
-    this.obtenerIndicadores(this.idTema);
+    this.obtenerIndicadores(this.IdIndicador);
   }
 
 
@@ -64,11 +58,11 @@ export class IndicadoresComponent implements OnInit {
 
   onRowInserting(e) {
 
-    const dataActu: Indicador = {...e.data};
+    const dataActu: DetalleIndicador = {...e.data};
 
-    dataActu.IdTema = this.idTema;
+    dataActu.IdIndicador = this.IdIndicador;
 
-    let result = this.indicadoresservice.Adicionar(dataActu).toPromise();
+    let result = this.detalleindicadoresservice.Adicionar(dataActu).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -80,7 +74,7 @@ export class IndicadoresComponent implements OnInit {
               });
 
               resolve();
-              this.obtenerIndicadores(this.idTema);
+              this.obtenerIndicadores(this.IdIndicador);
 
       })
       .catch((error) => {
@@ -98,9 +92,9 @@ export class IndicadoresComponent implements OnInit {
   }
   onRowUpdating(e) {
 
-    const dataActu: Indicador = {...e.oldData, ...e.newData};
+    const dataActu: DetalleIndicador = {...e.oldData, ...e.newData};
 
-    let result = this.indicadoresservice.Actualizar(dataActu).toPromise();
+    let result = this.detalleindicadoresservice.Actualizar(dataActu).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -112,7 +106,7 @@ export class IndicadoresComponent implements OnInit {
               });
 
               resolve();
-              this.obtenerIndicadores(this.idTema);
+              this.obtenerIndicadores(this.IdIndicador);
 
       })
       .catch((error) => {
@@ -133,7 +127,7 @@ export class IndicadoresComponent implements OnInit {
   }
   onRowRemoving(e) {
 
-    let result = this.indicadoresservice.Eliminar(e.data.IdIndicador).toPromise();
+    let result = this.detalleindicadoresservice.Eliminar(e.data.IdDetalleIndicador).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -145,7 +139,7 @@ export class IndicadoresComponent implements OnInit {
               });
 
               resolve();
-              this.obtenerIndicadores(this.idTema);
+              this.obtenerIndicadores(this.IdIndicador);
 
       })
       .catch((error) => {
@@ -165,18 +159,6 @@ export class IndicadoresComponent implements OnInit {
 
   onInitNewRow(e) {
     e.data.SecuenciaVisualizacion = 0;
-    e.data.EstadoVisualizacion='S';
-    e.data.Drilldown = true;
-    e.data.AgrupacionSerie = false;
-    e.data.TituloEjeY = 'Valores';
-    // e.data.FormatoVisualizacionDato = "<span style='color:{point.color}'>{point.name}</span>: <b>{point.y:.1f}</b><br/>";
-    // e.data.FormatoTooltipEncabezado = "<span style='font-size:11px'>{series.name}</span><br>";
-    // e.data.FormatoTooltipDato = "{point.y:.1f}";
-    e.data.TituloEjeX = 'Valor';
-    e.data.TituloEjeXDrilldown = '%';
-    e.data.NumeroDecimalesFormato = 1;
-    e.data.ComparativoPais = false;
-
   }
 
   optionChangedHandler(args) {
@@ -197,18 +179,6 @@ onEditorPreparing(e) {
 }
 
 
-
-  obtenerTemas() {
-
-    return this.temasservice.Detalle('').subscribe(
-      (resp: any) => {
-          this.temas = resp.temas;
-      },
-      (err) => {
-
-      }
-    );
-  }
 
   obtenerPerspectivasBSC() {
 
@@ -234,21 +204,9 @@ onEditorPreparing(e) {
     );
   }
 
-  obtenerTiposGraficos() {
+  obtenerIndicadores(idindicador: number) {
 
-    return this.tiposgraficosservice.Detalle('').subscribe(
-      (resp: any) => {
-          this.tiposgraficos = resp.tipos;
-      },
-      (err) => {
-
-      }
-    );
-  }
-
-  obtenerIndicadores(idtema: number) {
-
-    return this.indicadoresservice.Detalle(idtema).subscribe(
+    return this.detalleindicadoresservice.Detalle(idindicador).subscribe(
       (resp: any) => {
           this.data = resp.indicadores;
       },
@@ -273,3 +231,4 @@ onEditorPreparing(e) {
 
 
 }
+

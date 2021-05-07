@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
@@ -15,10 +16,17 @@ export class AppLoginComponent implements OnInit {
     loginViewModel: LoginViewModel = new LoginViewModel();
     userlogged: string = '';
     nombreApp = environment.nombreApp;
+    loginFormGroup: FormGroup;
 
 
     constructor(public loginService: LoginService,
+        private fbuilder: FormBuilder,
         private router: Router ) {
+
+            this.loginFormGroup = this.fbuilder.group({
+                Usuario: [null, [Validators.required]] ,
+                Password: [null, [Validators.required]]
+            });
 
         }
 
@@ -38,6 +46,8 @@ export class AppLoginComponent implements OnInit {
     });
 
     Swal.showLoading();
+
+    this.loginViewModel = {...this.loginFormGroup.value};
 
     this.loginService.Login(this.loginViewModel)
       .subscribe( (response) => {

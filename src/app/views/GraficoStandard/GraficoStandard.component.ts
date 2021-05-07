@@ -26,6 +26,11 @@ export class GraficoStandardComponent implements OnInit {
             plotBorderWidth: null,
             plotShadow: false
         },
+        labels: {
+            formatter: function() {
+                return Highcharts.dateFormat('%m/%d/%y', this.value);
+            }
+        },
       series: [{ }]
         };
 
@@ -39,7 +44,7 @@ export class GraficoStandardComponent implements OnInit {
     this.chartOptions = null;
     return this.indicadoresservice.DatosGrafico(indicador).subscribe(
       (resp: any) => {
-          this.chartOptions = resp.datagrafico;
+          this.chartOptions = {...resp.datagrafico};
          // console.log(this.chartOptions);
 
       },

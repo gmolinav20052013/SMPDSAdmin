@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
@@ -117,6 +117,9 @@ import { GraficoStandardComponent } from './views/GraficoStandard/GraficoStandar
 import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionTacometros/VisualizacionTacometros.component';
 import { GraficoMapaComponent } from './views/GraficoMapa/GraficoMapa.component';
 import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
+import { VisualizacionMapasComponent } from './visualizacion/VisualizacionMapas/VisualizacionMapas.component';
+import { DetalleIndicadoresComponent } from './configuracion/DetalleIndicadores/DetalleIndicadores.component';
+import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
 
 
 
@@ -124,6 +127,7 @@ import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -227,11 +231,14 @@ import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
         TiposGraficosComponent,
         ParametrosSistemaComponent,
         IndicadoresComponent,
+        DetalleIndicadoresComponent,
         VisualizacionIndicadoresComponent,
         VisualizacionTacometrosComponent,
+        VisualizacionMapasComponent,
         GraficoStandardComponent,
         GraficoMapaComponent,
-        ReportesComponent
+        ReportesComponent,
+        PeriodosComponent
 
 
    ],

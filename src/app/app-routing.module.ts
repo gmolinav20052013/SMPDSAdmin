@@ -21,6 +21,8 @@ import { IndicadoresComponent } from './configuracion/Indicadores/Indicadores.co
 import { VisualizacionIndicadoresComponent } from './visualizacion/VisualizacionIndicadores/VisualizacionIndicadores.component';
 import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionTacometros/VisualizacionTacometros.component';
 import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
+import { VisualizacionMapasComponent } from './visualizacion/VisualizacionMapas/VisualizacionMapas.component';
+import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
 
 
 
@@ -68,6 +70,12 @@ import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
                             ruta: 'OPCTemas'
                         }
                     },
+                    {path: 'periodos', component: PeriodosComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Periodos',
+                            ruta: 'OPCPeriodos'
+                        }
+                    },
                     {path: 'parametrossistema', component: ParametrosSistemaComponent , canActivate: [CanActivateGuardService],
                         data: {
                             title: 'Parámetros del sistema',
@@ -88,8 +96,14 @@ import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
                     },
                     {path: 'visuaindicadores', component: VisualizacionIndicadoresComponent , canActivate: [CanActivateGuardService],
                         data: {
-                            title: 'Visualización indicadores',
-                            ruta: 'OPCVisualizacionIndicadores'
+                            title: 'Visualización Series de Datos',
+                            ruta: 'OPCVisualizacionSeries'
+                        }
+                    },
+                    {path: 'visuamapas', component: VisualizacionMapasComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Visualización mapas',
+                            ruta: 'OPCVisualizacionMapas'
                         }
                     },
                     {path: 'visuatacometros', component: VisualizacionTacometrosComponent , canActivate: [CanActivateGuardService],

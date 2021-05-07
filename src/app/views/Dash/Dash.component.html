@@ -140,6 +140,28 @@
             </a>
         </div>
         <div class="p-col-12 p-md-3">
+            <a routerLink="/periodos">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Periodos</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Mantenimiento de periodos
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Periodos }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="p-col-12 p-md-3">
             <a routerLink="/reportes">
                 <div class="tasks card">
                     <div class="tasks-progress">
@@ -202,7 +224,7 @@
                             </div>
                         </div>
                         <div class="p-col-fixed p-col-align-center">
-                            {{ Indicadores + Tacometros }}
+                            {{ TotalIndicadores }}
                         </div>
                     </div>
                 </div>
@@ -217,12 +239,12 @@
                     <div class="tasks-progress">
                         <!-- <div class="tasks-progress-value"></div> -->
                     </div>
-                    <div class="tasks-header">Visualización indicadores</div>
+                    <div class="tasks-header">Visualización Series de Datos</div>
                     <div class="p-grid p-nogutter">
                         <div class="p-col" style="margin-left: 14px">
                             <div class="task-content">
                                 <div class="tasks-detail">
-                                    Visualización indicadores
+                                    Visualización Series de Datos
                                 </div>
                             </div>
                         </div>
@@ -233,6 +255,30 @@
                 </div>
             </a>
         </div>
+
+        <div class="p-col-12 p-md-3">
+            <a routerLink="/visuamapas">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Visualización mapas</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Visualización mapas
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Mapas }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
         <div class="p-col-12 p-md-3">
             <a routerLink="/visuatacometros">
                 <div class="tasks card">
@@ -250,6 +296,28 @@
                         </div>
                         <div class="p-col-fixed p-col-align-center">
                             {{ Tacometros }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="p-col-12 p-md-3">
+            <a routerLink="/visuatacometros">
+                <div class="tasks card">
+                    <div class="tasks-progress">
+                        <!-- <div class="tasks-progress-value"></div> -->
+                    </div>
+                    <div class="tasks-header">Visualización Tablas y Gráficos</div>
+                    <div class="p-grid p-nogutter">
+                        <div class="p-col" style="margin-left: 14px">
+                            <div class="task-content">
+                                <div class="tasks-detail">
+                                    Visualización Tablas y Gráficos
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-fixed p-col-align-center">
+                            {{ Tablas }}
                         </div>
                     </div>
                 </div>

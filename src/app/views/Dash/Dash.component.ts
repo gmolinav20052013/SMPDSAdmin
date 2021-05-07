@@ -15,9 +15,13 @@ export class DashComponent implements OnInit {
     Temas = 0;
     TiposGraficos = 0;
     ParametrosSistema = 0;
+    TotalIndicadores = 0;
     Indicadores = 0;
     Tacometros = 0;
     Reportes = 0;
+    Mapas = 0;
+    Periodos = 0;
+    Tablas = 0;
 
   constructor(private dashboardservice: DashboardService) { }
 
@@ -40,8 +44,13 @@ export class DashComponent implements OnInit {
         this.TiposGraficos = resp.tiposgraficos;
         this.ParametrosSistema = resp.parametrossistema;
         this.Indicadores = resp.indicadores;
+        this.TotalIndicadores = resp.indicadorestotal;
+        this.Mapas = resp.mapas;
         this.Tacometros = resp.tacometros;
         this.Reportes = resp.reportes;
+        this.Periodos = resp.periodos;
+
+
 
       },
       (err) => {

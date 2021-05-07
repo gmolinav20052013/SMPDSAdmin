@@ -1,3 +1,5 @@
+import { ThrowStmt } from "@angular/compiler";
+
 export class Indicador {
 	public IdIndicador: number;
 	public IdTema: number;
@@ -19,13 +21,16 @@ export class Indicador {
 	public TituloEjeXDrilldown: string;
     public IdentificadorTipoGrafico: string;
     public NumeroDecimalesFormato: number;
+    public ComparativoPais: boolean;
+    public TotalDetalle: number;
 
 	constructor (IdIndicador_: number = null,IdTema_: number = null,IdTipoGrafico_: number = null,CODINDIC_: string = null,CODVISAO_: string = null,
                  CODPERSP_: string = null,CODOBJEC_: string = null,SIGLA_: string = null,SecuenciaVisualizacion_: number = null,
                  EstadoVisualizacion_: string = null,Drilldown_: boolean = null,AgrupacionSerie_: boolean = null,
                  TituloEjeY_: string = null,FormatoVisualizacionDato_: string = null,FormatoTooltipEncabezado_: string = null,
                  FormatoTooltipDato_: string = null,TituloEjeX_: string = null,TituloEjeXDrilldown_: string = null,
-                 IdentificadorTipoGrafico_: string = null, NumeroDecimalesFormato_: number = null)
+                 IdentificadorTipoGrafico_: string = null, NumeroDecimalesFormato_: number = null,
+                 ComparativoPais_:boolean = null,TotalDetalle_:number = null)
 	{
 		this.IdIndicador = IdIndicador_;
 		this.IdTema = IdTema_;
@@ -47,5 +52,7 @@ export class Indicador {
 		this.TituloEjeXDrilldown = TituloEjeXDrilldown_;
         this.IdentificadorTipoGrafico = IdentificadorTipoGrafico_;
         this.NumeroDecimalesFormato = NumeroDecimalesFormato_;
+        this.ComparativoPais = ComparativoPais_;
+        this.TotalDetalle = TotalDetalle_;
 	}
 }

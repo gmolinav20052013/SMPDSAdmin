@@ -6,16 +6,15 @@ import { TemasService } from 'src/app/services/Temas.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-VisualizacionIndicadores',
-  templateUrl: './VisualizacionIndicadores.component.html',
-  styleUrls: ['./VisualizacionIndicadores.component.scss']
-})
-export class VisualizacionIndicadoresComponent implements OnInit {
-
+    selector: 'app-VisualizacionMapas',
+    templateUrl: './VisualizacionMapas.component.html',
+    styleUrls: ['./VisualizacionMapas.component.scss']
+  })
+  export class VisualizacionMapasComponent implements OnInit {
     idTema = 0;
     public temas: Tema[] = [];
     public data: Indicador[] = [];
-    nombreOpcion = 'Visualización Series de Datos';
+    nombreOpcion = 'Visualización Mapas';
     nombreApp = environment.nombreApp;
 
   constructor(public temasservice: TemasService, public indicadoresservice: IndicadoresSMPDSService) {
@@ -58,3 +57,4 @@ export class VisualizacionIndicadoresComponent implements OnInit {
   }
 
 }
+

@@ -16,12 +16,12 @@
         </div>
     </div>
     <ng-container *ngFor="let indicador of data">
-        <div class="p-col-12 p-lg-6">
-            <div class="tasks card"  *ngIf="indicador.EstadoVisualizacion === 'S'">
-                <app-GraficoStandard [IdIndicador]='indicador.IdIndicador'></app-GraficoStandard>
+        <div class="p-col-12 p-lg-6" *ngIf="indicador.IdentificadorTipoGrafico == 'map'">
+            <div class="tasks card" *ngIf="indicador.IdentificadorTipoGrafico == 'map' && indicador.EstadoVisualizacion === 'S'">
+                <app-GraficoMapa [IdIndicador]='indicador.IdIndicador'></app-GraficoMapa>
             </div>
-            <div class="tasks card" style="background: #F3A723;" *ngIf="indicador.EstadoVisualizacion === 'N'">
-                <app-GraficoStandard [IdIndicador]='indicador.IdIndicador'></app-GraficoStandard>
+            <div class="tasks card" style="background: #F3A723;" *ngIf="indicador.IdentificadorTipoGrafico == 'map' && indicador.EstadoVisualizacion === 'N'">
+                <app-GraficoMapa [IdIndicador]='indicador.IdIndicador'></app-GraficoMapa>
             </div>
         </div>
     </ng-container>
