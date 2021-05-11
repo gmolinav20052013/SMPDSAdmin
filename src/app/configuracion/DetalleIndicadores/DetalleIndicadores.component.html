@@ -38,6 +38,16 @@
                     <dxo-form-item [visible]="false"> </dxo-form-item>
                 </dxi-column>
 
+                <dxi-column dataField="IdTipoGrafico" caption="Tipo gráfico">
+                    <dxo-lookup
+                        [dataSource]="tiposgraficos"
+                        displayExpr="NombreTipoGrafico"
+                        valueExpr="IdTipoGrafico"
+                    >
+                    </dxo-lookup>
+                    <dxo-form-item visible="true"> </dxo-form-item>
+                </dxi-column>
+
 
                 <dxi-column
                     dataField="CODPERSP"

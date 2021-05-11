@@ -1,0 +1,103 @@
+<div class="p-d-flex p-jc-center">
+    <div><h4>{{ tituloReporte }}</h4></div>
+</div>
+<div class="p-d-flex p-jc-end">
+    <div><dx-button id="exportButton"
+            icon="exportpdf"
+            text="Export to PDF"
+            (onClick)="exportGrid($event)">
+        </dx-button>
+    </div>
+</div>
+<dx-data-grid
+id="gridContainer"
+[dataSource]="data"
+keyExpr="IdTema"
+[allowColumnReordering]="true"
+[showBorders]="true"
+[rowAlternationEnabled]="true"
+[errorRowEnabled]="false"
+[hoverStateEnabled]="true"
+[wordWrapEnabled]="true"
+[showColumnLines]="false"
+[showRowLines]="true"
+[showBorders]="true"
+[rowAlternationEnabled]="true"
+(onExporting)="onExporting($event)"
+(onCellPrepared)="onCellPrepared($event)" >
+<dxo-paging [enabled]="true" [pageSize]="20"></dxo-paging>
+<dxo-export [enabled]="true"></dxo-export>
+
+<dxi-column
+    dataField="SIGLA"
+    width='40%'
+    caption="Indicador">
+</dxi-column>
+
+<dxi-column
+dataField="VALOR1"
+headerCellTemplate="captionTemplateVALOR1"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="VALOR2"
+headerCellTemplate="captionTemplateVALOR2"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="VALOR3"
+headerCellTemplate="captionTemplateVALOR3"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="VALOR4"
+headerCellTemplate="captionTemplateVALOR4"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="VALOR5"
+headerCellTemplate="captionTemplateVALOR5"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="VALOR6"
+headerCellTemplate="captionTemplateVALOR6"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="Meta"
+caption="Meta"
+datatype="number"
+format="###.#">
+</dxi-column>
+<dxi-column
+dataField="Avance"
+caption="Avance">
+</dxi-column>
+
+<div *dxTemplate="let data of 'captionTemplateVALOR1'">
+    {{ this.tituloColumnas[0] }}
+</div>
+<div *dxTemplate="let data of 'captionTemplateVALOR2'">
+    {{ this.tituloColumnas[1] }}
+</div>
+<div *dxTemplate="let data of 'captionTemplateVALOR3'">
+    {{ this.tituloColumnas[2] }}
+</div>
+<div *dxTemplate="let data of 'captionTemplateVALOR4'">
+    {{ this.tituloColumnas[3] }}
+</div>
+<div *dxTemplate="let data of 'captionTemplateVALOR5'">
+    {{ this.tituloColumnas[4] }}
+</div>
+<div *dxTemplate="let data of 'captionTemplateVALOR6'">
+    {{ this.tituloColumnas[5] }}
+</div>
+
+</dx-data-grid>

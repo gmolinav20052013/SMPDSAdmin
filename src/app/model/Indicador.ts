@@ -1,4 +1,5 @@
 import { ThrowStmt } from "@angular/compiler";
+import { NumericRule } from "devextreme/ui/validation_rules";
 
 export class Indicador {
 	public IdIndicador: number;
@@ -23,6 +24,9 @@ export class Indicador {
     public NumeroDecimalesFormato: number;
     public ComparativoPais: boolean;
     public TotalDetalle: number;
+    public Visualizacion: string;
+    public Visualizaciones: string[];
+    public SecuenciaVisualizacionGraficosTablas: number;
 
 	constructor (IdIndicador_: number = null,IdTema_: number = null,IdTipoGrafico_: number = null,CODINDIC_: string = null,CODVISAO_: string = null,
                  CODPERSP_: string = null,CODOBJEC_: string = null,SIGLA_: string = null,SecuenciaVisualizacion_: number = null,
@@ -30,7 +34,8 @@ export class Indicador {
                  TituloEjeY_: string = null,FormatoVisualizacionDato_: string = null,FormatoTooltipEncabezado_: string = null,
                  FormatoTooltipDato_: string = null,TituloEjeX_: string = null,TituloEjeXDrilldown_: string = null,
                  IdentificadorTipoGrafico_: string = null, NumeroDecimalesFormato_: number = null,
-                 ComparativoPais_:boolean = null,TotalDetalle_:number = null)
+                 ComparativoPais_:boolean = null,TotalDetalle_:number = null,Visualizacion_:string= null, Visualizaciones_: string[] = null,
+                 SecuenciaVisualizacionGraficosTablas_:number = null)
 	{
 		this.IdIndicador = IdIndicador_;
 		this.IdTema = IdTema_;
@@ -54,5 +59,8 @@ export class Indicador {
         this.NumeroDecimalesFormato = NumeroDecimalesFormato_;
         this.ComparativoPais = ComparativoPais_;
         this.TotalDetalle = TotalDetalle_;
+        this.Visualizacion = Visualizacion_;
+        this.Visualizaciones = Visualizaciones_;
+        this.SecuenciaVisualizacionGraficosTablas = SecuenciaVisualizacionGraficosTablas_;
 	}
 }

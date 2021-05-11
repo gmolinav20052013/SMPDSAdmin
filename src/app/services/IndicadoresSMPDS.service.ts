@@ -27,6 +27,13 @@ export class IndicadoresSMPDSService {
         );
     }
 
+    public DetalleGraficosNacionales(idtema: number): Observable<Indicador[]> {
+        return this.httpClient.get<Indicador[]>(
+            `${this.url}indicadores/detallegraficosnacionales?idtema=${idtema}`,
+            { responseType: "json" }
+        );
+    }
+
     public DetalleTacometros(idtema: number): Observable<Indicador[]> {
         return this.httpClient.get<Indicador[]>(
             `${this.url}indicadores/detalletacometros?idtema=${idtema}`,

@@ -1,0 +1,63 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card">
+            <h4>{{ nombreOpcion }}</h4>
+            <hr />
+            <dx-data-grid
+                id="gridContainer"
+                [dataSource]="data"
+                keyExpr="IdDepartamento"
+                [allowColumnReordering]="true"
+                [showBorders]="true"
+                [rowAlternationEnabled]="true"
+                [errorRowEnabled]="false"
+                [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
+                (onRowInserting)="onRowInserting($event)"
+                (onRowUpdating)="onRowUpdating($event)"
+                (onRowRemoving)="onRowRemoving($event)"
+                (onInitNewRow)="onInitNewRow($event)"
+                (onInitialized)="onInitialized($event)"
+            >
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-paging [enabled]="true" [pageSize]="20"></dxo-paging>
+            <dxo-editing
+                mode="form"
+                [allowUpdating]="true"
+                [allowDeleting]="true"
+                [allowAdding]="true"
+            >
+            </dxo-editing>
+            <dxo-search-panel
+                [visible]="true"
+                [width]="240"
+                placeholder="Buscar..."
+            ></dxo-search-panel>
+
+                <dxi-column
+                    dataField="IdentificadorDepartamento"
+                    caption="Identificador"
+                >
+                </dxi-column>
+
+                <dxi-column dataField="NombreDepartamento" caption="Nombre">
+                </dxi-column>
+
+                <dxi-column
+                    dataField="SecuenciaVisualizacion"
+                    caption="Secuencia"
+                    datatype="number"
+                    format="###0"
+                >
+                    <dxo-form-item
+                        editorType="dxNumberBox"
+                        [editorOptions]="{ format: '00', min: 1, max: 99 }"
+                    >
+                    </dxo-form-item>
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                </dxi-column>
+            </dx-data-grid>
+        </div>
+    </div>
+</div>

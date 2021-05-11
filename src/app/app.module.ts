@@ -120,6 +120,10 @@ import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
 import { VisualizacionMapasComponent } from './visualizacion/VisualizacionMapas/VisualizacionMapas.component';
 import { DetalleIndicadoresComponent } from './configuracion/DetalleIndicadores/DetalleIndicadores.component';
 import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
+import { TablaNacionalResumenIndicadoresComponent } from './views/TablaNacionalResumenIndicadores/TablaNacionalResumenIndicadores.component';
+import { VisualizacionGraficosNacionalesComponent } from './visualizacion/VisualizacionGraficosNacionales/VisualizacionGraficosNacionales.component';
+import { DepartamentosComponent } from './tablas/Departamentos/Departamentos.component';
+import { TablaIndicadoresDepartamentosComponent } from './views/TablaIndicadoresDepartamentos/TablaIndicadoresDepartamentos.component';
 
 
 
@@ -238,7 +242,11 @@ import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
         GraficoStandardComponent,
         GraficoMapaComponent,
         ReportesComponent,
-        PeriodosComponent
+        PeriodosComponent,
+        TablaNacionalResumenIndicadoresComponent,
+        VisualizacionGraficosNacionalesComponent,
+        DepartamentosComponent,
+        TablaIndicadoresDepartamentosComponent
 
 
    ],

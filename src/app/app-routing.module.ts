@@ -23,6 +23,8 @@ import { VisualizacionTacometrosComponent } from './visualizacion/VisualizacionT
 import { ReportesComponent } from './configuracion/Reportes/Reportes.component';
 import { VisualizacionMapasComponent } from './visualizacion/VisualizacionMapas/VisualizacionMapas.component';
 import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
+import { VisualizacionGraficosNacionalesComponent } from './visualizacion/VisualizacionGraficosNacionales/VisualizacionGraficosNacionales.component';
+import { DepartamentosComponent } from './tablas/Departamentos/Departamentos.component';
 
 
 
@@ -76,6 +78,12 @@ import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
                             ruta: 'OPCPeriodos'
                         }
                     },
+                    {path: 'departamentos', component: DepartamentosComponent , canActivate: [CanActivateGuardService],
+                        data: {
+                            title: 'Departamentos',
+                            ruta: 'OPCDepartamentos'
+                        }
+                    },
                     {path: 'parametrossistema', component: ParametrosSistemaComponent , canActivate: [CanActivateGuardService],
                         data: {
                             title: 'Parámetros del sistema',
@@ -112,6 +120,12 @@ import { PeriodosComponent } from './tablas/Periodos/Periodos.component';
                             ruta: 'OPCVisualizacionTacometros'
                         }
                     },
+                    {path: 'visuagrafnacionales', component: VisualizacionGraficosNacionalesComponent , canActivate: [CanActivateGuardService],
+                    data: {
+                        title: 'Visualización Gráficos y tablas nacionales',
+                        ruta: 'OPCVisuaGrafNacionales'
+                    }
+                },
                 ]
             },
             {path: 'error', component: AppErrorComponent},

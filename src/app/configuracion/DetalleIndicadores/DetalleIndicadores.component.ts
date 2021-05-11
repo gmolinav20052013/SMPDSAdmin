@@ -1,11 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DatoGenericoCaracter } from 'src/app/model/datoGenerico';
-import { Tema } from 'src/app/model/Tema';
 import { TemasService } from 'src/app/services/Temas.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
-import { Indicador } from '../../model/Indicador';
-import { IndicadoresSMPDSService } from '../../services/IndicadoresSMPDS.service';
 import { TipoGrafico } from '../../model/TipoGrafico';
 import { TiposGraficosService } from 'src/app/services/TiposGraficos.service';
 import { QBSINDIC } from '../../model/QBSINDIC';
@@ -38,10 +35,12 @@ import { DetalleIndicadoresService } from 'src/app/services/DetalleIndicadores.s
 
   constructor(public temasservice: TemasService, public detalleindicadoresservice: DetalleIndicadoresService,
               public consultasservice: ConsultasService,
+              public tiposgraficosservice: TiposGraficosService,
               private route: ActivatedRoute) {
 
                 this.obtenerPerspectivasBSC();
                 this.obtenerIndicadoresBSC();
+                this.obtenerTiposGraficos();
 
                 this.getIndicadoresBSC = this.getIndicadoresBSC.bind(this);
 
@@ -178,7 +177,17 @@ onEditorPreparing(e) {
     }
 }
 
+obtenerTiposGraficos() {
 
+    return this.tiposgraficosservice.Detalle('').subscribe(
+      (resp: any) => {
+          this.tiposgraficos = resp.tipos;
+      },
+      (err) => {
+
+      }
+    );
+  }
 
   obtenerPerspectivasBSC() {
 

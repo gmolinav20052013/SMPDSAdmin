@@ -1,38 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Tema } from 'src/app/model/Tema';
 import { environment } from 'src/environments/environment';
-import { DatoGenericoCaracter } from '../../model/datoGenerico';
 import Swal from 'sweetalert2';
-import { ConsultasService } from 'src/app/services/Consultas.service';
-import { QBSPERSP } from 'src/app/model/QBSPERSP';
-import { PeriodosService } from 'src/app/services/Periodos.service';
-import { Periodo } from '../../model/Periodo';
+import { DepartamentosService } from 'src/app/services/Departamentos.service';
+import { Departamento } from 'src/app/model/Departamento';
 
 
 
 @Component({
-    selector: 'app-Periodos',
-    templateUrl: './Periodos.component.html',
-    styleUrls: ['./Periodos.component.scss']
+    selector: 'app-Departamentos',
+    templateUrl: './Departamentos.component.html',
+    styleUrls: ['./Departamentos.component.scss']
   })
-  export class PeriodosComponent implements OnInit {
+  export class DepartamentosComponent implements OnInit {
+  nombreOpcion = 'Departamentos';
 
-  nombreOpcion = 'Períodos';
-
-  constructor(public periodosservice: PeriodosService) {
+  constructor(public departamentosservice: DepartamentosService) {
 
 
 
    }
 
   nombreApp = environment.nombreApp;
-  public data: Periodo[] = [];
-  public generico: DatoGenericoCaracter[] = [{ id:'A', nombre: 'Activo' }, {id:'I', nombre: 'Inactivo'}];
+  public data: Departamento[] = [];
   totalRegistros = 0;
 
   ngOnInit() {
 
-    this.obtenerPeriodos();
+    this.obtenerDepartamentos();
 
   }
 
@@ -47,9 +41,9 @@ import { Periodo } from '../../model/Periodo';
 
   onRowInserting(e) {
 
-    const dataActu: Periodo = {...e.data};
+    const dataActu: Departamento = {...e.data};
 
-    let result = this.periodosservice.Adicionar(dataActu).toPromise();
+    let result = this.departamentosservice.Adicionar(dataActu).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -61,7 +55,7 @@ import { Periodo } from '../../model/Periodo';
               });
 
               resolve();
-              this.obtenerPeriodos();
+              this.obtenerDepartamentos();
 
       })
       .catch((error) => {
@@ -79,9 +73,9 @@ import { Periodo } from '../../model/Periodo';
   }
   onRowUpdating(e) {
 
-    const dataActu: Periodo = {...e.oldData, ...e.newData};
+    const dataActu: Departamento = {...e.oldData, ...e.newData};
 
-    let result = this.periodosservice.Actualizar(dataActu).toPromise();
+    let result = this.departamentosservice.Actualizar(dataActu).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -113,7 +107,7 @@ import { Periodo } from '../../model/Periodo';
   }
   onRowRemoving(e) {
 
-    let result = this.periodosservice.Eliminar(e.data.IdPeriodo).toPromise();
+    let result = this.departamentosservice.Eliminar(e.data.IdDepartamento).toPromise();
 
     e.cancel = new Promise<void>((resolve, reject) => {
       result.then((validationResult) => {
@@ -125,7 +119,7 @@ import { Periodo } from '../../model/Periodo';
               });
 
               resolve();
-              this.obtenerPeriodos();
+              this.obtenerDepartamentos();
 
       })
       .catch((error) => {
@@ -144,14 +138,14 @@ import { Periodo } from '../../model/Periodo';
   }
 
   onInitNewRow(e) {
-    e.data.EstadoVisualizacion = 'A';
+    e.data.SecuenciaVisualizacion = 1;
   }
 
-  obtenerPeriodos() {
+  obtenerDepartamentos() {
 
-    return this.periodosservice.Detalle(0).subscribe(
+    return this.departamentosservice.Detalle().subscribe(
       (resp: any) => {
-          this.data = resp.periodos;
+          this.data = resp.departamentos;
           this.totalRegistros = resp.totalregistros;
       },
       (err) => {
@@ -159,6 +153,8 @@ import { Periodo } from '../../model/Periodo';
       }
     );
   }
+
+
 
 }
 

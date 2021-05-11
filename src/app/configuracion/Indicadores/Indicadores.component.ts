@@ -32,6 +32,7 @@ export class IndicadoresComponent implements OnInit {
 
     nombreApp = environment.nombreApp;
     public generico: DatoGenericoCaracter[] = [{ id:'S', nombre: 'Si' }, {id:'N', nombre: 'No'}];
+    public visualizaciones: DatoGenericoCaracter[] = [{ id:'SD', nombre: 'Serie Datos' }, {id:'GN', nombre: 'Gráficos Nacionales'}, {id:'GD', nombre: 'Gráficos Departamentales'}];
     public generico2: DatoGenericoBoolean[] = [{ id: true, nombre: 'Si' }, {id: false, nombre: 'No'}];
 
   constructor(public temasservice: TemasService, public indicadoresservice: IndicadoresSMPDSService,
@@ -176,6 +177,8 @@ export class IndicadoresComponent implements OnInit {
     e.data.TituloEjeXDrilldown = '%';
     e.data.NumeroDecimalesFormato = 1;
     e.data.ComparativoPais = false;
+    e.data.Visualizaciones = ['SD'];
+    e.data.SecuenciaVisualizacionGraficosTablas = 1
 
   }
 

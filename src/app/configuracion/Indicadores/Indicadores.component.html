@@ -191,6 +191,31 @@
                 <dxi-validation-rule type="required"></dxi-validation-rule>
             </dxi-column>
 
+            <dxi-column
+                    dataField="Visualizaciones"
+                    caption="Visualización"
+                    [visible]="false"
+                >
+                <dxo-form-item editorType="dxTagBox"
+                [editorOptions]="{ dataSource:visualizaciones, displayExpr:'nombre', valueExpr:'id' }">
+                </dxo-form-item>
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+
+            <dxi-column
+            dataField="SecuenciaVisualizacionGraficosTablas"
+            caption="Secuencia Gráficos Tablas"
+            datatype="number"
+            format="##0"
+        >
+            <dxo-form-item
+                editorType="dxNumberBox"
+                [editorOptions]="{ format: '000', min: 1, max: 999 }"
+            >
+            </dxo-form-item>
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-column>
+
             <div *dxTemplate="let detailrequisito of 'detail'">
                 <app-DetalleIndicadores [IdIndicador]="detailrequisito.key"></app-DetalleIndicadores>
             </div>
